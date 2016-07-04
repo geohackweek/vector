@@ -3,7 +3,7 @@
 How to use this template:
 
 1. Go to the <a href="http://import.github.com/new?import_url=https://github.com/neurohackweek/lesson-template
-" target="_blank"> Github Importer</a>. In the top text box you should already have the url of this repo. In the bottom part
+" target="_blank"> Github Importer</a>. In the top text box paste the url of this repo. In the bottom part
 choose either "Neurohackweek" (if that's an option) or your own user account and
 then enter the name of the lesson/repository that you wish to create.
 
