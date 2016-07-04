@@ -17,24 +17,9 @@
         <span class="icon-bar"></span>
       </button>
 
-      {% comment %} Select what logo to display. {% endcomment %}
-      {% if page.carpentry == "swc" %}
-      <a href="{{ site.swc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ root }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      <a href="{{ site.nhw_site }}" class="pull-left">
+        <img class="navbar-logo" src="{{ root }}/assets/img/nhw-logo.png" alt="Software Carpentry logo" />
       </a>
-      {% elsif page.carpentry == "dc" %}
-      <a href="{{ site.dc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ root }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
-      </a>
-      {% elsif site.carpentry == "swc" %}
-      <a href="{{ site.swc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ root }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
-      </a>
-      {% elsif site.carpentry == "dc" %}
-      <a href="{{ site.dc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ root }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
-      </a>
-      {% endif %}
 
       {% comment %} Always show link to home page. {% endcomment %}
       <a class="navbar-brand" href="{{ root }}/">Home</a>
@@ -42,13 +27,6 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-
-	{% comment %} Always show code of conduct. {% endcomment %}
-        <li><a href="{{ root }}/conduct/">Code of Conduct</a></li>
-
-	{% comment %} Show setup instructions, reference guide, and lesson episodes for lessons. {% endcomment %}
-        {% if site.kind == "lesson" %}
-        <li><a href="{{ root }}/setup/">Setup</a></li>
         <li><a href="{{ root }}/reference/">Reference</a></li>
         <li class="dropdown">
           <a href="{{ root }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
@@ -58,19 +36,6 @@
             {% endfor %}
           </ul>
         </li>
-	{% endif %}
-
-	{% comment %} Show extras for lessons or if this is the main workshop-template repo (where they contain documentation). {% endcomment %}
-	{% if site.kind == "lesson" or site.repository_name == "workshop-template" %}
-        <li class="dropdown">
-          <a href="{{ root }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            {% for extra in site.extras %}
-            <li><a href="{{ root }}{{ extra.url }}">{{ extra.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </li>
-	{% endif %}
 
 	{% comment %} Always show license. {% endcomment %}
         <li><a href="{{ root }}/license/">License</a></li>

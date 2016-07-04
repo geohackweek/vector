@@ -3,13 +3,11 @@ layout: page
 title: "Licenses"
 permalink: /license/
 ---
+
 ## Instructional Material
 
-All Software Carpentry and Data Carpentry instructional material is
-made available under the [Creative Commons Attribution
-license][cc-by-human]. The following is a human-readable summary of
-(and not a substitute for) the [full legal text of the CC BY 4.0
-license][cc-by-legal].
+All Neurohackweek instructional material is made available under the [Creative Commons Attribution license][cc-by-human]. The following is a human-readable
+summary of (and not a substitute for) the [full legal text of the CC BY 4.0 license][cc-by-legal].
 
 You are free:
 
@@ -24,9 +22,8 @@ license terms.
 Under the following terms:
 
 * **Attribution**---You must give appropriate credit (mentioning that
-  your work is derived from work that is Copyright © Software
-  Carpentry and, where practical, linking to
-  http://software-carpentry.org/), provide a [link to the
+  your work is derived from work that is Copyright © Neurohackweek and, where
+  practical, linking to http://neurohackweek.github.io/), provide a [link to the
   license][cc-by-human], and indicate if changes were made. You may do
   so in any reasonable manner, but not in any way that suggests the
   licensor endorses you or your use.
@@ -48,7 +45,7 @@ Notices:
 ## Software
 
 Except where otherwise noted, the example programs and other software
-provided by Software Carpentry and Data Carpentry are made available under the
+provided by Neurohackweek are made available under the
 [OSI][osi]-approved
 [MIT license][mit-license].
 
@@ -71,13 +68,16 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Trademark
 
-"Software Carpentry" an "Data Carpentry" and their respective logos
-are registered trademarks of [NumFOCUS][numfocus].
+## Templates
+
+The templates used to create these lessons were created by [Software
+Carpentry](http://software-carpentry.org/). See AUTHORS for a list of contributors to the template. In accordance with the terms of the
+original license, the changes made are documented in the version control history
+of this repository, and other repositories in [the neurohackweek github website][nhw-github].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [mit-license]: http://opensource.org/licenses/mit-license.html
-[numfocus]: http://numfocus.org/
 [osi]: http://opensource.org
+[nhw-github]: http://github.com/neurohackweek
