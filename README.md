@@ -1,15 +1,7 @@
-python-novice-gapminder
-=======================
+# Lesson template for Neurohackweek
 
-Introduction to Python for non-programmers with a focus on data analysis.
-Please see <https://swcarpentry.github.io/python-novice-gapminder/> for a rendered version of this material,
-[the lesson template documentation][lesson-example]
-for instructions on formatting, building, and submitting material,
-or run `make` in this directory for a list of helpful commands.
+How to use this template:
 
-Maintainer(s):
-
-* [Greg Wilson][wilson-greg]
-
-[lesson-example]: https://swcarpentry.github.com/lesson-example/
-[wilson-greg]: http://software-carpentry.org/team/#wilson_g
+Go to the <a href="https://github.com/new/import" target="_blank"> Github Importer</a>. In the top text box enter the url of this repo. In the bottom part
+choose either "Neurohackweek" (if that's an option) or your own user account and
+the name of the lesson/repository that you wish to create.
