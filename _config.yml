@@ -2,24 +2,21 @@
 # Values for this lesson.
 #------------------------------------------------------------
 
-# Which carpentry is this ("swc" or "dc")?
-carpentry: "swc"
-
 # What kind of thing is this ("workshop" or "lesson")?
 kind: "lesson"
 
 # Overall title for pages.
-title: "Programming in Python"
+title: "Lesson template for Neurohackweek"
 
 # Repository URL (without trailing slash).
-repo: https://github.com/swcarpentry/python-novice-gapminder
+repo: https://github.com/neurohackweek/lesson-template
 
 # Root URL below username.github.io domain, with leading slash but no trailing slash.
-# For example, for 'https://swcarpentry.github.io/lesson-example', use '/lesson-example'.
-root: "/python-novice-gapminder"
+# For example, for 'https://neurohackweek.github.io/lesson-example', use '/lesson-example'.
+root: "/lesson-template"
 
 # Contact email address.
-email: lessons@software-carpentry.org
+email: arokem@uw.edu
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
@@ -29,19 +26,12 @@ email: lessons@software-carpentry.org
 is_production: true
 
 # Sites.
-amy_site: "https://amy.software-carpentry.org/workshops"
-dc_site: "https://datacarpentry.org"
-swc_github: "https://github.com/swcarpentry"
+nhw_site: "https://neurohackweek.github.io"
+nhw_github: "https://github.com/neurohackweek"
 swc_site: "https://software-carpentry.org"
 template_repo: "https://github.com/swcarpentry/styles"
 example_repo: "https://github.com/swcarpentry/lesson-example"
 example_site: "https://swcarpentry.github.com/lesson-example"
-workshop_repo: "https://github.com/swcarpentry/workshop-template"
-workshop_site: "https://swcarpentry.github.io/workshop-template"
-
-# Surveys.
-pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
-post_survey: "https://www.surveymonkey.com/r/swc_post_workshop_v1?workshop_id="
 
 # Start time in minutes (540 is 09:00 am)
 start_time: 540
@@ -68,4 +58,4 @@ exclude:
   - bin
 
 # Turn off built-in syntax highlighting.
-highlighter: false
+highlighter: true
