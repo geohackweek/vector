@@ -57,10 +57,10 @@ affine = img.affine
 
 Images can be embedded into the lesson plan, by using the following syntax:
 
-![an image]({{site.root}}/assets/img/nhw-logo.png)
+![an image]({{site.root}}/fig/nhw-logo.png)
 
 To embed images, you will also want to copy the image file into the
-`assets/images` folder of the repo, and add that.
+`fig` folder of the repo, and add that.
 
 > ## Exercises and challenges (click on the arrow to the right to open)
 >
