@@ -1,14 +1,13 @@
 # Contributing
 
-[Neurohackweek][nhw-site] is an open source project, and we welcome
+[Geohackweek][ghw-site] is an open source project, and we welcome
 contributions of all kinds: new lessons, fixes to existing material, bug
 reports, and reviews of proposed changes are all welcome.
 
 ## Contributor Agreement
 
-By contributing, you agree that we may redistribute your work under [our license](LICENSE.md). In exchange, we will address your issues and/or assess
-your change proposal as promptly as we can, and help you become a member of our
-community. Everyone involved in [Neurohackweek][nhw-site] agrees to abide by our
+By contributing, you agree that we may redistribute your work under [our license](LICENSE.md). In exchange, we will address your issues and/or assess your change proposal as promptly as we can, and help you become a member of our
+community. Everyone involved in [Geohackweek][ghw-site] agrees to abide by our
 [code of conduct](CONDUCT.md).
 
 ## How to Contribute
@@ -60,7 +59,8 @@ In brief:
 
 You can [reach us by email][contact].
 
-[contact]: mailto:arokem@uw.edu
+[ghw-site]: http://geohackweek.github.io
+[contact]: mailto:arendta@uw.edu
 [github]: http://github.com
 [github-flow]: https://guides.github.com/introduction/flow/
 [github-join]: https://github.com/join

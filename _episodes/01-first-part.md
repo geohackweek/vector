@@ -15,9 +15,9 @@ keypoints:
 
 ---
 
-### Neurohackweek is *open*
+### geohackweek is *open*
 
-The Neurohackweek event can only accomodate a limited number of participants.
+The geohackweek event can only accomodate a limited number of participants.
 Nevertheless, we are committed to openess and we are committed to providing our
 materials in an open format, through a publicly accessible website.
 
@@ -57,7 +57,7 @@ affine = img.affine
 
 Images can be embedded into the lesson plan, by using the following syntax:
 
-![an image]({{site.root}}/fig/nhw-logo.png)
+![an image]({{site.root}}/fig/ghw-logo.jpg)
 
 To embed images, you will also want to copy the image file into the
 `fig` folder of the repo, and add that.
