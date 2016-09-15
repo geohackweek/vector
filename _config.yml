@@ -7,7 +7,7 @@ encoding: utf-8
 kind: "lesson"
 
 # Overall title for pages.
-title: "Lesson template for Geohackweek"
+title: "Multidimensional Arrays"
 
 # Repository URL (without trailing slash).
 repo: https://github.com/geohackweek/nDarrays

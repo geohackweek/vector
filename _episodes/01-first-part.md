@@ -4,6 +4,7 @@ teaching: 15
 exercises: 0
 questions:
 - "What are multidimensional arrays used for?"
+- "What are current challenges is manipulating these datasets?" 
 objectives:
 - "discuss some common multidimensional array types"
 - "explore which disciplines use these"
