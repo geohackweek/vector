@@ -20,7 +20,7 @@ keypoints:
 
 Begin by importing the relevant libraries
 
-~~~
+{% highlight python %}
 import boto3
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
@@ -31,5 +31,4 @@ import xarray.ufuncs as xu
 import seaborn as sn
 from datetime import datetime
 from dask.diagnostics import ProgressBar
-~~~
-{: .python}
+{% endhighlight %}
