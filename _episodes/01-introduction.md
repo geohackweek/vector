@@ -10,7 +10,6 @@ objectives:
 - "explore which disciplines use these"
 keypoints:
 - ndarrays are cool.
-- we will learn a lot
 
 ---
 ### Overview:
@@ -28,12 +27,3 @@ Many multidimensional datasets are stored in self-describing formats such as net
 ### Challenges:
 
 Many multidimensional datasets are becoming very large as model resolution and sensing capabilities improve. Traditional methods for looping through array datasets to perform subsetting are no longer viable options for handling these large datasets, because we are limited by what our computers can read into memory. In addition, it is often challenging to keep track of index values when manipulating arrays that span multiple dimensions. 
-
-### Learning Objectives: 
-
-To become familiar with the [xarray](http://xarray.pydata.org/en/stable/) Python library for:
-1. selection and subsetting of array datasets using labeled indexing;
-2. grouping data and applying statistical functions across multiple dimensions;
-3. visualizing 1 and 2 dimensional slices of array data;
-4. using multi-threading libraries to facilitate manipulation of larger-than-memory grids;
-5. understand best practices for reading and storing large gridded 
