@@ -1,81 +1,38 @@
 ---
-title: "An introduction to this lesson"
+title: "Introduction to multidimensional arrays"
 teaching: 15
 exercises: 0
 questions:
-- "What do we need a template for?"
+- "What are multidimensional arrays used for?"
 objectives:
-- "Edit lesson materials in the template"
-- "Contribute fixes through Github PRs"
-- "Use the template to create your own lesson"
+- "discuss some common multidimensional array types"
+- "explore which disciplines use these"
 keypoints:
-- We want to use this template to provide lesson materials in an open and useful format.
-
-- This is in line with our overall goal of making science (including scientific training) more open.
+- ndarrays are cool.
+- we will learn a lot
 
 ---
+### Overview:
 
-### geohackweek is *open*
+Geoscientists often need to manipulate datasets structured as arrays. A common example is gridded data consisting of a set of climate variables (e.g. temperature and precipitation) that varies in space and time. Often we need to subset a large global dataset to look at data for a particular region, or select a specific time slice. Then we might want to apply statistical functions to these subsetted groups to generate summary information.
 
-The geohackweek event can only accomodate a limited number of participants.
-Nevertheless, we are committed to openess and we are committed to providing our
-materials in an open format, through a publicly accessible website.
+The tools in this tutorial have some similarity to raster image processing tools. Both require computational engines that can manipulate large stacks of data formatted as arrays. Here we focus on tools that are optimized to handle data that have many variables spanning dimensions of time and space. See the raster tutorials for tools that are optimized for image processing tools and remote sensing datasets.
 
-### Using a template allows to create websites for each of the lectures
+### Existing Methods:
 
-To enable access to the materials in an open format, but allow different
-instructors freedom in construcing their own materials, we provide a template
-(you're looking at it!), that can be relatively easily adapted to create lesson
-materials for many different lessons
+A common approach for handling multidimensional grids is to read the data into an array and then write a series of nested loops with conditional statements to look for a specific range of index values associated with the temporal or spatial slice needed. Also, clever use of matrix algebra is often used to summarize data across spatial and temporal dimensions.
 
-To create a new lesson out of the template
+Many multidimensional datasets are stored in self-describing formats such as netcdf. Some organizations have developed their own netcdf toolkits that accomplish tasks like subsetting and grouping.
 
-### Template lesson files are markdown files
+### Challenges:
 
-* They are in the `_episodes` folder.
-* They are named sequentially:
-  - `01-first-part.md`
-  - `02-second-part.md`
-  - etc
+Many multidimensional datasets are becoming very large as model resolution and sensing capabilities improve. Traditional methods for looping through array datasets to perform subsetting are no longer viable options for handling these large datasets, because we are limited by what our computers can read into memory. In addition, it is often challenging to keep track of index values when manipulating arrays that span multiple dimensions. 
 
+### Learning Objectives: 
 
-### Markdown format allows you to create nice web-pages
-
-And with only a really small amount of effort! It's text based, so you can
-write exactly what you intend to say.
-
-If you want to introduce a block of code into your lesson, write a block
-fenced by triple-tilde. Here is an example of that
-
-~~~
-import nibabel as nib
-img = nib.load('my_file.nii.gz')
-affine = img.affine
-~~~
-{: .python}
-
-
-Images can be embedded into the lesson plan, by using the following syntax:
-
-![an image]({{site.root}}/fig/ghw-logo.jpg)
-
-To embed images, you will also want to copy the image file into the
-`fig` folder of the repo, and add that.
-
-> ## Exercises and challenges (click on the arrow to the right to open)
->
->  Boxes with "challenges" can be interleaved with the lesson materials.
->  Consider adding a challenge every 15 minutes or so.
->    - This helps participants stay engaged.
->    - It surfaces questions that learners have as they go along.
->    - It breaks up the instruction, providing a bit of a diversion.
->    - It gives people a chance to engage in peer instruction, which is
->      is [known to help learning](https://en.wikipedia.org/wiki/Peer_instruction).
-{: .challenge}
-
-
-> ## Callouts
-> If you want to introduce a box with a "callout", use this syntax
-> This is useful for materials that you think of as explanatory asides
-> I usually use this for extra material that is "optional".
-{: .callout}
+To become familiar with the [xarray](http://xarray.pydata.org/en/stable/) Python library for:
+1. selection and subsetting of array datasets using labeled indexing;
+2. grouping data and applying statistical functions across multiple dimensions;
+3. visualizing 1 and 2 dimensional slices of array data;
+4. using multi-threading libraries to facilitate manipulation of larger-than-memory grids;
+5. understand best practices for reading and storing large gridded 
