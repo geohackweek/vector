@@ -16,10 +16,20 @@ keypoints:
 - "try it out today"
 ---
 
-## Same as before
+## Getting this set up
 
-Use markdown to write the content.
+Begin by importing the relevant libraries
 
-Note that if you set up the `teaching` and `exercises` timing in the file
-header, the timing will automatically get updated in the schedule for your
-lesson. Pretty nifty, innit?
+~~~
+import boto3
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import xarray
+import xarray.ufuncs as xu 
+import seaborn as sn
+from datetime import datetime
+from dask.diagnostics import ProgressBar
+~~~
+{: .python}
