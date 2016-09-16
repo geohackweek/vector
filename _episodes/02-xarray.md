@@ -39,7 +39,7 @@ keypoints:
 ### Basic xray data structures:
 * Dataset: multi-dimensional equivalent of a Pandas DataFrame
     * dict-like container of DataArray objects
-![climate](http://xray.readthedocs.org/en/stable/_images/dataset-diagram.png)
+<img src="http://xray.readthedocs.org/en/stable/_images/dataset-diagram.png" width = "800" border = "10">
 * dimensions (x, y, time); variables (temp, precip); coords (lat, long); attributes
 
 ## Using xarray
@@ -68,9 +68,10 @@ from dask.diagnostics import ProgressBar
 First we [open](http://xarray.pydata.org/en/stable/generated/xarray.open_dataset.html) the data and load it into a *data array*. (Note: the choice of engine depends on the format of the netcdf file).
 
 
-{% highlight python %}
+~~~
 ds = xarray.open_dataset('<rootDir>/ecmwf_airtemp.nc', engine = 'scipy')
-{% endhighlight %}
+~~~
+{: .python}
 
 You'll notice this seemed to go very fast. That is because this step does not actually ask Python to read the data into memory. Rather, Python is just scanning the contents of the file. This is called _lazy evaluation_. 
 
