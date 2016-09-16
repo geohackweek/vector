@@ -26,6 +26,25 @@ Geoscientists often need to manipulate datasets structured as arrays. A common e
 > and remote sensing datasets.
 {: .callout}
 
+
+> ## Exercises and challenges (click on the arrow to the right to open)
+>
+>  Boxes with "challenges" can be interleaved with the lesson materials.
+>  Consider adding a challenge every 15 minutes or so.
+>    - This helps participants stay engaged.
+>    - It surfaces questions that learners have as they go along.
+>    - It breaks up the instruction, providing a bit of a diversion.
+>    - It gives people a chance to engage in peer instruction, which is
+>      is [known to help learning](https://en.wikipedia.org/wiki/Peer_instruction).
+{: .challenge}
+
+
+> ## Callouts
+> If you want to introduce a box with a "callout", use this syntax
+> This is useful for materials that you think of as explanatory asides
+> I usually use this for extra material that is "optional".
+{: .callout}
+
 ### Existing Methods:
 
 A common approach for handling multidimensional grids is to read the data into an array and then write a series of nested loops with conditional statements to look for a specific range of index values associated with the temporal or spatial slice needed. Also, clever use of matrix algebra is often used to summarize data across spatial and temporal dimensions.
