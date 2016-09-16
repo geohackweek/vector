@@ -21,7 +21,6 @@ keypoints:
 Begin by importing the relevant libraries
 
 {% highlight python %}
-import boto3
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import pandas as pd

@@ -18,7 +18,7 @@ keypoints:
 
 Geoscientists often need to manipulate datasets structured as arrays. A common example is gridded data consisting of a set of climate variables (e.g. temperature and precipitation) that varies in space and time. Often we need to subset a large global dataset to look at data for a particular region, or select a specific time slice. Then we might want to apply statistical functions to these subsetted groups to generate summary information.
 
-> ### Isn't this the same as raster processing? 
+> ## Isn't this the same as raster processing? 
 > The tools in this tutorial have some similarity to raster image processing
 > tools. Both require computational engines that can manipulate large stacks of data formatted as arrays. 
 > Here we focus on tools that are optimized to handle data that have many variables spanning dimensions
