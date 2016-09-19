@@ -1,25 +1,6 @@
-# Lesson template for geohackweek
+# multidimensional arrays
 
-How to use this template:
+These are files to build a github website hosting the [geohackweek](https://geohackweek.github.io/) multidimensional array [tutorial](https://geohackweek.github.io/nDarrays). 
 
-1. Go to the <a href="http://import.github.com/new?import_url=https://github.com/geohackweek/lesson-template
-" target="_blank"> Github Importer</a>. In the top text box paste the url of this repo. In the bottom part
-choose either "geohackweek" (if that's an option) or your own user account and
-then enter the name of the lesson/repository that you wish to create.
+Pull-requests to expand on our tutorial content are encouraged. Changes can be made to the markdown files located in the [episodes folder](https://github.com/geohackweek/nDarrays/tree/gh-pages/_episodes)
 
-2. Change the following variables in the `_config.yml` file:
-   - `title`
-   - `repo`
-   - `root`
-   - `email` (you can leave Ariel's address here, if you want).
-   - `start_time` : this is the start time in minutes since midnight. For
-     example, 9 AM is 540 (60 * 9).
-
-3. Edit the content in the `_episodes` folder, adding images (into
-  `assets/img`), code (into `code`), data (into `data`) as needed. Pay
-  particular attention to the following:
-
-  - Sections should be named `01-first-part.md`, `02-second-part.md`, etc to be ordered in the schedule.
-  - Edit the headers of each of your sections. Editing the duration of both `teaching` and `exercises`
-  - Add coffee breaks into the lesson. This keeps the timing of each section
-    accurate.
