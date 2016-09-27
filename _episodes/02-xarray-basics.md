@@ -3,14 +3,14 @@ title: "Using xarray"
 teaching: 45
 exercises: 15
 questions:
-- "What functionality does xarray offer?"
-- "When should I use xarray?"
+- "What functionality does the xarray library offer?"
+- "What are the benefits and limitations of this library?"
 objectives:
 - "selection and subsetting of array datasets using labeled indexing"
 - "grouping data and applying statistical functions across multiple dimensions"
 - "visualizing 1 and 2 dimensional slices of array data"
 keypoints:
-- xarray 
+- "xarray simplifies handling of multidimensional arrays through labelled coordinates and adpotion of pandas-like data reduction tools" 
 ---
 
 ### What is xarray?
