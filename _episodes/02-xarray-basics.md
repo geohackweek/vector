@@ -86,33 +86,16 @@ ds
 
 ## Dataset Properties
 
-Xarray datasets have a number of [properties](http://xarray.pydata.org/en/stable/data-structures.html#dataarray) that you can view at any time:
+Xarray datasets have a number of [parameters](http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html) that store additional information about the data. These include:
 
-### Dimensions
+* __Dimensions__: the names of each of the dimensional axes
+* __Coordinates__: Think of coordinates as the labels for all elements along each dimension. So dimensions are the names of your axes, whereas coordinates are the values of all the ticks along those axes: 
+* __Attributes__: Attributes are metadata associated with the dataset. It's very good practice to keep track of the details of your data this way. Here we are just reading back the attribute data already stored in the climate data netcdf file. Note that all of these dataset properties are returned as Python dictionaries.
 
-Dimension are the names of each of the dimensional axes:
-
-~~~
-ds.dims
-~~~
-{: .python}
-
-### Coordinates
-Think of coordinates as the labels for all elements along each dimension. So dimensions are the names of your axes, whereas coordinates are the values of all the ticks along those axes: 
-
-~~~
-ds.coords
-~~~
-{: .python}
-
-### Attributes
-
-Attributes are metadata associated with the dataset. It's very good practice to keep track of the details of your data this way. Here we are just reading back the attribute data already stored in the climate data netcdf file. Note that all of these dataset properties are returned as Python dictionaries.
-
-~~~
-ds.attrs
-~~~
-{: .python}
+> ## Displaying dataset properties
+> Try looking up the coordinates (coords), attributes (attrs) and data variables (data_vars) for our existing dataset.
+> Look at the output and think about what this tells us about our sample dataset.
+{: .challenge}
 
 ### Data Arrays
 
