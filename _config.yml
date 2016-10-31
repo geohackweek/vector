@@ -7,7 +7,7 @@ encoding: utf-8
 kind: "lesson"
 
 # Overall title for pages.
-title: "Python Tools for Vector Data Processing"
+title: "Vector Data Processing using Python Tools"
 
 # Repository URL (without trailing slash).
 repo: https://github.com/geohackweek/vector
