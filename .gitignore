@@ -3,3 +3,5 @@
 .sass-cache
 _site
 __pycache__
+.ipynb_checkpoints
+.db.json
