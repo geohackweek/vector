@@ -24,7 +24,8 @@ keypoints:
 
 We covered the basics of GeoPandas in the previous episode and notebook. Here, we'll extend that introduction to illustrate additional aspects of GeoPandas and its interactions with other Python libraries, covering fancier mapping, analysis (unitary and binary spatial operators), raster zonal stats and geopandas. 
 
-**Here are the main sections in this episode / notebook:**
+#### Here are the main sections in this episode / notebook:
+
 * Read HydroBASINS North America / Western Washington from PostGIS. *Introduces and reads the watershed dataset that will be used throughout the tutorial, including additional capabilities when reading from PostGIS databases.*
 * Dissolve into larger watersheds, and reproject
 * Plot `choropleth` map based on calculated watershed areas
@@ -249,7 +250,7 @@ hydrobas_ww_p7.plot(column='pfaf_7', cmap='Paired', categorical=True, figsize=(1
 > ## Beware of "invalid" geometries!
 > **Beware that `dissolve` may fail if there are "invalid" geometries.**
 > See this code from the previous, intro notebook. The 6 geometries/points reported are invalid (and are reported by the `is_valid()` method). This dissolve statement does work, though.
-> ~~~
+> {% highlight python %}
 > seas_grp = seas[['oceans', 'geometry']]
 > seas_oceans_diss = seas_grp[seas_grp.geometry.is_valid].dissolve(by='oceans')
 > 
@@ -259,12 +260,12 @@ hydrobas_ww_p7.plot(column='pfaf_7', cmap='Paired', categorical=True, figsize=(1
 > Ring Self-intersection at or near point 133.61550925464189 -4.3005540903175188
 > Ring Self-intersection at or near point 121.91067196634913 -5.0593090510592447
 > Ring Self-intersection at or near point 115.29553592754269 -7.0082630551828515
-> ~~~
-> {: .python}
+> {% endhighlight %}
 {: .callout}
 
 ### Reproject (transform) to WA State Plane South, epsg:2927
 Partly so we can calculate polygon areas in linear units, not geodetic degrees. But also because that's the projection used by most state and local governments in Washington.
+
 * [http://epsg.io/?q=2927](http://epsg.io/?q=2927)
 * [http://spatialreference.org/ref/epsg/2927/](http://spatialreference.org/ref/epsg/2927/)
 * [Report from http://www.epsg-registry.org](http://www.epsg-registry.org/report.htm?type=selection&entity=urn:ogc:def:crs:EPSG::2927&reportDetail=short&style=urn:uuid:report-style:default-with-code&style_name=OGP%20Default%20With%20Code&title=EPSG:2927)

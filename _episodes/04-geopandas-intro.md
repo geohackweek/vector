@@ -33,12 +33,14 @@ keypoints:
 
 GeoPandas is still young, but it builds on mature and stable and widely used packages (Pandas, shapely, etc). Expect kinks and continued growth!
 
-**When should you use GeoPandas?**
+#### When should you use GeoPandas?
+
 * For exploratory data analysis, including in Jupyter notebooks.
 * For highly compact and readable code. Which in turn improves reproducibility.
 * If you're comfortable with Pandas, R dataframes, or tabular/relational approaches.
 
-**When it may not be the best tool?**
+#### When it may not be the best tool?
+
 * If you need high performance (though I'm not completely sure -- it uses a nice `rtree` index).
 * For polished map creation and multi-layer, interactive visualization; if you're comfortable with GIS, use a desktop GIS like QGIS! You can generate intermediate GIS files and plots with GeoPandas, then shift over to QGIS. Or refine the plots in Python with matplotlib or additional packages.
 
@@ -73,11 +75,12 @@ Like a Pandas `Series`, a `GeoSeries` is the building block for the more broadly
 A `GeoSeries` is made up of an index and a GeoPandas `geometry` data type. This data type is a [shapely.geometry object](http://toblerity.org/shapely/manual.html#geometric-objects), and therefore inherits their attributes and methods such as `area`, `bounds`, `distance`, etc.
 
 GeoPandas has six classes of **geometric objects**, corresponding to the three basic single-entity geometric types and their associated homogeneous collections of multiples entities:
-* **Single entity (core, basic types):**
+
+* Single entity (core, basic types):
   * Point
   * Line (*formally known as a LineString*)
   * Polygon
-* **Homogeneous entity collections:**
+* Homogeneous entity collections:
   * Multi-Point
   * Multi-Line (*MultiLineString*)
   * Multi-Polygon
