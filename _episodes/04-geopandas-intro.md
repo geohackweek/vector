@@ -157,7 +157,7 @@ plt.ylim([44.8, 47.7]);
 ```
 
 
-![png](04/geopandas_intro_20_0.png)
+![png](../fig/04/geopandas_intro_20_0.png)
 
 
 **Let's get a bit fancier, as a stepping stone to GeoDataFrames.** First, we'll define a simple dictionary of lists, that we'll use again later.
@@ -255,7 +255,7 @@ df
     </tr>
   </tbody>
 </table>
-</br>
+<br>
 
 
 
@@ -275,7 +275,7 @@ gdf.plot(marker='*', color='green', markersize=6, figsize=(2, 2));
 ```
 
 
-![png](04/geopandas_intro_35_0.png)
+![png](../fig/04/geopandas_intro_35_0.png)
 
 
 ### FINALLY, we get to work with real data! Load and examine the simple "oceans" shape file
@@ -344,7 +344,7 @@ oceans.head()
     </tr>
   </tbody>
 </table>
-</br>
+<br>
 
 
 
@@ -370,7 +370,7 @@ oceans.plot();
 ```
 
 
-![png](04/geopandas_intro_43_0.png)
+![png](../fig/04/geopandas_intro_43_0.png)
 
 
 `oceans.shp` stores both `Polygon` and `Multi-Polygon` geometry types (but a `Polygon` may be viewed as a `Multi-Polygon` with 1 member). We can get at the geometry types and other geometry properties easily.
@@ -485,7 +485,7 @@ oceans.geometry.bounds
     </tr>
   </tbody>
 </table>
-</br>
+<br>
 
 
 
@@ -497,7 +497,7 @@ oceans.envelope.plot();
 ```
 
 
-![png](04/geopandas_intro_49_0.png)
+![png](../fig/04/geopandas_intro_49_0.png)
 
 
 Does it seem weird that some envelope bounding boxes, such as the North Pacific Ocean, span all longitudes? That's because they're Multi-Polygons with edges at the ends of the -180 and +180 degree coordinate range.
@@ -508,7 +508,7 @@ oceans[oceans['Oceans'] == 'North Pacific Ocean'].plot();
 ```
 
 
-![png](04/geopandas_intro_51_0.png)
+![png](../fig/04/geopandas_intro_51_0.png)
 
 
 ### Load "Natural Earth" countries dataset, bundled with GeoPandas
@@ -557,7 +557,7 @@ world.head(2)
     </tr>
   </tbody>
 </table>
-</br>
+<br>
 
 
 
@@ -581,7 +581,7 @@ world.plot();
 ```
 
 
-![png](04/geopandas_intro_56_0.png)
+![png](../fig/04/geopandas_intro_56_0.png)
 
 
 ### Map plot overlays: Plotting multiple spatial layers
@@ -594,7 +594,7 @@ world.plot(ax=oceans.plot(cmap='Set2', alpha=1), alpha=1);
 ```
 
 
-![png](04/geopandas_intro_59_0.png)
+![png](../fig/04/geopandas_intro_59_0.png)
 
 
 > ## Watch for plotting bug
@@ -615,7 +615,7 @@ plt.axis('equal');
 ```
 
 
-![png](04/geopandas_intro_62_0.png)
+![png](../fig/04/geopandas_intro_62_0.png)
 
 
 ## 5. Extras: Reading from other data source types; fancier plotting
@@ -765,7 +765,7 @@ seas.head()
     </tr>
   </tbody>
 </table>
-</br>
+<br>
 
 
 
@@ -779,7 +779,7 @@ seas.plot(column='oceans', categorical=True, legend=True, figsize=(14,6));
 ```
 
 
-![png](04/geopandas_intro_81_0.png)
+![png](../fig/04/geopandas_intro_81_0.png)
 
 
 > ## Additional plotting examples
@@ -807,7 +807,7 @@ plt.ylim([bounds.miny.min()-5, bounds.maxy.max()+5]);
 ```
 
 
-![png](04/geopandas_intro_85_0.png)
+![png](../fig/04/geopandas_intro_85_0.png)
 
 
 ### Save the filtered seas GeoDataFrame to a shape file
@@ -923,4 +923,4 @@ wfs_gdf.plot(ax=world.plot(alpha=1), figsize=(10, 6),
 ```
 
 
-![png](04/geopandas_intro_98_0.png)
+![png](../fig/04/geopandas_intro_98_0.png)
