@@ -15,7 +15,7 @@ objectives:
 - Explore simple but powerful capabilities offered by the rasterstats package to generate summaries and statistics of raster properties over vector features, and explore these via GeoPandas.
 keypoints:
 - While still a young package, GeoPandas offers powerful capabilities.
-- GeoJSON and the common __geo_interface__ enable convenient and widespread geospatial data object exchange across geospatial packages in Python.
+- GeoJSON and the common `__geo_interface__` enable convenient and widespread geospatial data object exchange across geospatial packages in Python.
 ---
 
 ## View episode content in a Jupyter Notebook
