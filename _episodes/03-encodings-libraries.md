@@ -19,15 +19,18 @@ keypoints:
 
 
 ## GeoJSON, `__geo_interface__` method
-* [http://geojson.org](http://geojson.org), [ttp://geojson.org/geojson-spec.html#examples](ttp://geojson.org/geojson-spec.html#examples)
-* GeoJSON (and GeoJSON resources/tools online, like http://dropcho.io and http://github.com native viewing); Python GeoInterface (`__geo_interface__` method)
+* [http://geojson.org](http://geojson.org), [http://geojson.org/geojson-spec.html#examples](http://geojson.org/geojson-spec.html#examples)
+* GeoJSON and GeoJSON resources/tools online
+  * github lets you view GeoJSON files natively
+  * [http://geojson.io](http://geojson.io). From github. Lets you interactively create and view small GeoJSON files
+  * [http://dropcho.io](http://dropcho.io). Spatial operations on GeoJSON data, online and interactive!
+* Python `__geo_interface__` method
   * [GeoJSON and the geo interface for Python](https://sgillies.net/2013/06/27/geojson-and-the-geo-interface-for-python.html). See also [https://gist.github.com/sgillies/2217756](https://gist.github.com/sgillies/2217756)
   * [Processing vector features in Python](http://www.perrygeo.com/processing-vector-features-in-python.html)
-* [http://geojson.io](http://geojson.io). From github. Lets you interactively create and view small GeoJSON files (also, github lets you view GeoJSON files natively)
 * `geojson` package
 
 
-Example:
+GeoJSON Example:
 
 ~~~
 {
@@ -68,5 +71,5 @@ Example:
 
 
 ## Standard encodings and libraries for projections, codes
-* pyepsg, pyproj, fiona.from_epsg, GeoPandas.to_srs
+* pyepsg, pyproj, `fiona.from_epsg`, `GeoPandas.to_srs`
 
