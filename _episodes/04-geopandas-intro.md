@@ -27,20 +27,20 @@ keypoints:
 [GeoPandas](http://geopandas.org) adds a spatial geometry data type to `Pandas` and enables spatial operations on these types, using [shapely](http://toblerity.org/shapely/). GeoPandas leverages Pandas together with several core open source geospatial packages and practices to provide a uniquely simple and convenient framework for handling geospatial feature data, operating on both geometries and attributes jointly, and as with Pandas, largely eliminating the need to iterate over features (rows). Also as with Pandas, it adds a very convenient and fine-tuned plotting method, and read/write methods that handle multiple file and "serialization" formats.
 
 > ## Additional Notes
-> - Like `shapely`, these spatial data types are limited to discrete entities/features and do not address continuously varying rasters or fields.
-> - While GeoPandas spatial objects can be assigned a Coordinate Reference System (`CRS`), operations can not be performed across CRS's. Plus, geodetic ("unprojected", lat-lon) CRS are not handled in a special way; the area of a geodetic polygon will be in degrees.
+> * Like `shapely`, these spatial data types are limited to discrete entities/features and do not address continuously varying rasters or fields.
+> * While GeoPandas spatial objects can be assigned a Coordinate Reference System (`CRS`), operations can not be performed across CRS's. Plus, geodetic ("unprojected", lat-lon) CRS are not handled in a special way; the area of a geodetic polygon will be in degrees.
 {: .callout}
 
 GeoPandas is still young, but it builds on mature and stable and widely used packages (Pandas, shapely, etc). Expect kinks and continued growth!
 
 **When should you use GeoPandas?**
-- For exploratory data analysis, including in Jupyter notebooks.
-- For highly compact and readable code. Which in turn improves reproducibility.
-- If you're comfortable with Pandas, R dataframes, or tabular/relational approaches.
+* For exploratory data analysis, including in Jupyter notebooks.
+* For highly compact and readable code. Which in turn improves reproducibility.
+* If you're comfortable with Pandas, R dataframes, or tabular/relational approaches.
 
 **When it may not be the best tool?**
-- If you need high performance (though I'm not completely sure -- it uses a nice `rtree` index).
-- For polished map creation and multi-layer, interactive visualization; if you're comfortable with GIS, use a desktop GIS like QGIS! You can generate intermediate GIS files and plots with GeoPandas, then shift over to QGIS. Or refine the plots in Python with matplotlib or additional packages.
+* If you need high performance (though I'm not completely sure -- it uses a nice `rtree` index).
+* For polished map creation and multi-layer, interactive visualization; if you're comfortable with GIS, use a desktop GIS like QGIS! You can generate intermediate GIS files and plots with GeoPandas, then shift over to QGIS. Or refine the plots in Python with matplotlib or additional packages.
 
 ## 2. Set up packages and data file path
 We'll use these throughout the rest of the tutorial.
@@ -73,14 +73,14 @@ Like a Pandas `Series`, a `GeoSeries` is the building block for the more broadly
 A `GeoSeries` is made up of an index and a GeoPandas `geometry` data type. This data type is a [shapely.geometry object](http://toblerity.org/shapely/manual.html#geometric-objects), and therefore inherits their attributes and methods such as `area`, `bounds`, `distance`, etc.
 
 GeoPandas has six classes of **geometric objects**, corresponding to the three basic single-entity geometric types and their associated homogeneous collections of multiples entities:
-- **Single entity (core, basic types):**
-  - Point
-  - Line (*formally known as a LineString*)
-  - Polygon
-- **Homogeneous entity collections:**
-  - Multi-Point
-  - Multi-Line (*MultiLineString*)
-  - Multi-Polygon
+* **Single entity (core, basic types):**
+  * Point
+  * Line (*formally known as a LineString*)
+  * Polygon
+* **Homogeneous entity collections:**
+  * Multi-Point
+  * Multi-Line (*MultiLineString*)
+  * Multi-Polygon
 
 A GeoSeries is then a list of geometry objects and their associated index values.
 
@@ -207,8 +207,8 @@ gs
 ## 4. GeoDataFrames: The real power tool.
 
 > ## Additional notes
-> - It's worth noting that a GeoDataFrame can be described as a *Feature Collection*, where each row is a *Feature*, a *geometry* column is defined (thought the name of the column doesn't have to be "geometry"), and the attribute *Properties* are simply the other columns (the Pandas DataFrame part, if you will).
-> - More than one column can store geometry objects! We won't explore this capability in this tutorial.
+> * It's worth noting that a GeoDataFrame can be described as a *Feature Collection*, where each row is a *Feature*, a *geometry* column is defined (thought the name of the column doesn't have to be "geometry"), and the attribute *Properties* are simply the other columns (the Pandas DataFrame part, if you will).
+> * More than one column can store geometry objects! We won't explore this capability in this tutorial.
 {: .callout}
 
 ### Start with a simple, manually constructed illustration
