@@ -45,9 +45,10 @@ It's worth noting the existence of another type: a "Geometry Colection", or hete
 
 Following OGC SF lingo, a **feature** refers to a spatial entity (any of the above) and **ecompasses both its geometry and its associated attributes** (eg, name, categories, value of some property like population density). A **feature collection** is then a list or collection of features. Most real-world GIS vector datasets are feature collections.
 
+
 > ## Terminology hell
 > Ok, so a `feature collection` made up of Multi-Point features is a collection of collection. Gag. I leave it to you to read the fun OGC reports and get the terminology completely self-consistent.
-{: callout}
+{: .callout}
 
 
 ## Geospatial Operations
