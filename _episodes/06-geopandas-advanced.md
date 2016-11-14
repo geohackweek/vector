@@ -3,14 +3,19 @@ title: "GeoPandas Advanced Topics"
 teaching: 30
 exercises: 0
 questions:
-- "What capabilities does `python-rasterstats` offer for performing analyses of raster data over vector geospatial features?"
-- "How does it integrate with Pandas and other common Python tools?"
+- "What additional capabilities does GeoPandas provide, including data access, plotting and analysis?"
+- "How does it integrate with other common Python tools?"
+- "How do GeoPandas data objects integrate with analyses of raster data over vector geospatial features?"
 objectives:
-- Explore simple but powerful capabilities offered by `python-rasterstats` to generate summaries and statistics of raster properties over vector features.
-- These summaries include statistics for continuous data and value distributions for categorical data.
+- Explore additional GeoPandas capabilities in reading from PostGIS and using its plot method.
+- Learn how to dissolve (aggregate) polygons into larger units, and apply spatial joins across GeoDataFrames, as examples of GeoPandas spatial operators.
+- Learn how to explore project (CRS) information and reproject.
+- Plot choropleth maps
+- Using folium to create interactive maps from a GeoDataFrame
+- Explore simple but powerful capabilities offered by the rasterstats package to generate summaries and statistics of raster properties over vector features, and explore these via GeoPandas.
 keypoints:
-- The module, `python-rasterstats` offers powerful but simple-to-use capabilities for generating summaries of raster data over both continuos fields and categorical data.
-- These summaries are typically tabular in nature and can easily be integrated into Pandas DataFrames and GeoPandas GeoDataFrames for further analysis.
+- While still a young package, GeoPandas offers powerful capabilities.
+- GeoJSON and the common __geo_interface__ enable convenient and widespread geospatial data object exchange across geospatial packages in Python.
 ---
 
 ## View episode content in a Jupyter Notebook
@@ -250,7 +255,7 @@ hydrobas_ww_p7.plot(column='pfaf_7', cmap='Paired', categorical=True, figsize=(1
 > ## Beware of "invalid" geometries!
 > **Beware that `dissolve` may fail if there are "invalid" geometries.**
 > See this code from the previous, intro notebook. The 6 geometries/points reported are invalid (and are reported by the `is_valid()` method). This dissolve statement does work, though.
-> {% highlight python %}
+> ```python
 > seas_grp = seas[['oceans', 'geometry']]
 > seas_oceans_diss = seas_grp[seas_grp.geometry.is_valid].dissolve(by='oceans')
 > 
@@ -260,7 +265,7 @@ hydrobas_ww_p7.plot(column='pfaf_7', cmap='Paired', categorical=True, figsize=(1
 > Ring Self-intersection at or near point 133.61550925464189 -4.3005540903175188
 > Ring Self-intersection at or near point 121.91067196634913 -5.0593090510592447
 > Ring Self-intersection at or near point 115.29553592754269 -7.0082630551828515
-> {% endhighlight %}
+> ```
 {: .callout}
 
 ### Reproject (transform) to WA State Plane South, epsg:2927
