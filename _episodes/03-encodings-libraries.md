@@ -28,7 +28,7 @@ keypoints:
 * GeoJSON and GeoJSON resources/tools online
   * github lets you view GeoJSON files natively
   * [http://geojson.io](http://geojson.io). From github. Lets you interactively create and view small GeoJSON files
-  * [http://dropcho.io](http://dropcho.io). Spatial operations on GeoJSON data, online and interactive!
+  * [http://dropchop.io](http://dropchop.io). Spatial operations on GeoJSON data, online and interactive!
 * Python `__geo_interface__` method: Passing feature data around between code packages, as GeoJSON-like objects
   * [GeoJSON and the geo interface for Python](https://sgillies.net/2013/06/27/geojson-and-the-geo-interface-for-python.html). See also [https://gist.github.com/sgillies/2217756](https://gist.github.com/sgillies/2217756)
   * [Processing vector features in Python](http://www.perrygeo.com/processing-vector-features-in-python.html)
