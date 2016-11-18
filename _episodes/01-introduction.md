@@ -36,14 +36,14 @@ $ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortut
 Activate `vectorenv` conda environment
 
 ~~~
-\# source activate vectorenv
+# source activate vectorenv
 ~~~
 {: .bash}
 
 Run jupyter notebook
 
 ~~~
-\# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
+# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
 ~~~
 {: .bash}
 
@@ -77,14 +77,14 @@ $ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortut
 Activate `vectorenv` conda environment
 
 ~~~
-\# source activate vectorenv
+# source activate vectorenv
 ~~~
 {: .bash}
 
 Run jupyter notebook
 
 ~~~
-\# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
+# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
 ~~~
 {: .bash}
 
