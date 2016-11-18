@@ -21,31 +21,27 @@ Here are the steps to create a docker container that runs the ipython notebook w
 
   1. Pull the image
   
-  ~~~
+  ``` bash
   $ docker pull geohackweek2016/vectortutorial
-  ~~~
-  {: .bash}
+  ```
 
   2. Create docker container
 
-  ~~~
+  ``` bash
   $ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortutorial
-  ~~~
-  {: .bash}
+  ```
 
   3. Activate `vectorenv` conda environment
 
-  ~~~
+  ``` bash
   \# source activate vectorenv
-  ~~~
-  {: .bash}
+  ```
 
   4. Run jupyter notebook
 
-  ~~~
+  ``` bash
   \# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
-  ~~~
-  {: .bash}
+  ```
 
   5. Open web browser on your local host machine and put `localhost:8888` on your address bar to view notebook.
 
@@ -53,40 +49,34 @@ Here are the steps to create a docker container that runs the ipython notebook w
 
   1. In the docker prompt:
 
-  ~~~
+  ``` bash
   $ docker-machine ip default
-  ~~~
-  {: .bash}
+  ```
 
   *let's call the returned values the "IPaddress"*
 
   2. Pull the image
 
-  ~~~
+  ``` bash
   $ docker pull geohackweek2016/vectortutorial
-  ~~~
-  {: .bash}
+  ```
 
   3. Create docker container
 
-  ~~~
+  ``` bash
   $ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortutorial
-  ~~~
-  {: .bash}
-
+  ```
   4. Activate `vectorenv` conda environment
 
-  ~~~
+  ``` bash
   \# source activate vectorenv
-  ~~~
-  {: .bash}
+  ```
 
   5. Run jupyter notebook
 
-  ~~~
+  ``` bash
   \# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
-  ~~~
-  {: .bash}
+  ```
 
   6. Open web browser on your local host machine and put `IPaddress:8888` on your address bar to view notebook.
 
