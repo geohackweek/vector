@@ -19,76 +19,76 @@ Here are the steps to create a docker container that runs the ipython notebook w
 
 **Linux/OS X**
 
-  1. Pull the image
+Pull the image
   
-  ~~~
-  $ docker pull geohackweek2016/vectortutorial
-  ~~~
-  {: .bash}
+~~~
+$ docker pull geohackweek2016/vectortutorial
+~~~
+{: .bash}
 
-  2. Create docker container
+Create docker container
 
-  ~~~
-  $ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortutorial
-  ~~~
-  {: .bash}
+~~~
+$ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortutorial
+~~~
+{: .bash}
 
-  3. Activate `vectorenv` conda environment
+Activate `vectorenv` conda environment
 
-  ~~~
-  \# source activate vectorenv
-  ~~~
-  {: .bash}
+~~~
+\# source activate vectorenv
+~~~
+{: .bash}
 
-  4. Run jupyter notebook
+Run jupyter notebook
 
-  ~~~
-  \# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
-  ~~~
-  {: .bash}
+~~~
+\# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
+~~~
+{: .bash}
 
-  5. Open web browser on your local host machine and put `localhost:8888` on your address bar to view notebook.
+Open web browser on your local host machine and put `localhost:8888` on your address bar to view notebook.
 
 **Windows**
 
-  1. In the docker prompt:
+In the docker prompt:
 
-  ~~~
-  $ docker-machine ip default
-  ~~~
-  {: .bash}
+~~~
+$ docker-machine ip default
+~~~
+{: .bash}
 
-  *let's call the returned values the "IPaddress"*
+*let's call the returned values the "IPaddress"*
 
-  2. Pull the image
+Pull the image
 
-  ~~~
-  $ docker pull geohackweek2016/vectortutorial
-  ~~~
-  {: .bash}
+~~~
+$ docker pull geohackweek2016/vectortutorial
+~~~
+{: .bash}
 
-  3. Create docker container
+Create docker container
 
-  ~~~
-  $ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortutorial
-  ~~~
-  {: .bash}
-  
-  4. Activate `vectorenv` conda environment
+~~~
+$ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortutorial
+~~~
+{: .bash}
 
-  ~~~
-  \# source activate vectorenv
-  ~~~
-  {: .bash}
+Activate `vectorenv` conda environment
 
-  5. Run jupyter notebook
+~~~
+\# source activate vectorenv
+~~~
+{: .bash}
 
-  ~~~
-  \# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
-  ~~~
-  {: .bash}
+Run jupyter notebook
 
-  6. Open web browser on your local host machine and put `IPaddress:8888` on your address bar to view notebook.
+~~~
+\# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
+~~~
+{: .bash}
+
+Open web browser on your local host machine and put `IPaddress:8888` on your address bar to view notebook.
 
 ## Overview
 1. Geospatial Concepts
