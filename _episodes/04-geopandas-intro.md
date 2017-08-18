@@ -48,7 +48,7 @@ GeoPandas is still young, but it builds on mature and stable and widely used pac
 We'll use these throughout the rest of the tutorial.
 
 
-```python
+{% highlight python %}
 %matplotlib inline
 
 import os
@@ -65,7 +65,7 @@ import geopandas as gpd
 from geopandas import GeoSeries, GeoDataFrame
 
 data_pth = "../data"
-```
+{% endhighlight %}
 
 
 ## 3. GeoSeries: The geometry building block
@@ -96,11 +96,11 @@ But enough theory! Let's get our hands dirty (so to speak) with code. We'll star
 ### Create a `GeoSeries` from a list of `shapely Point` objects constructed directly from `WKT` text (though you will rarely need this raw approach)
 
 
-```python
+{% highlight python %}
 from shapely.wkt import loads
 
 GeoSeries([loads('POINT(1 2)'), loads('POINT(1.5 2.5)'), loads('POINT(2 3)')])
-```
+{% endhighlight %}
 
 
 
