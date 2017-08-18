@@ -48,7 +48,7 @@ GeoPandas is still young, but it builds on mature and stable and widely used pac
 We'll use these throughout the rest of the tutorial.
 
 
-```python
+{% highlight python %}
 %matplotlib inline
 
 import os
@@ -65,7 +65,7 @@ import geopandas as gpd
 from geopandas import GeoSeries, GeoDataFrame
 
 data_pth = "../data"
-```
+{% endhighlight %}
 
 
 ## 3. GeoSeries: The geometry building block
@@ -96,11 +96,11 @@ But enough theory! Let's get our hands dirty (so to speak) with code. We'll star
 ### Create a `GeoSeries` from a list of `shapely Point` objects constructed directly from `WKT` text (though you will rarely need this raw approach)
 
 
-```python
+{% highlight python %}
 from shapely.wkt import loads
 
 GeoSeries([loads('POINT(1 2)'), loads('POINT(1.5 2.5)'), loads('POINT(2 3)')])
-```
+{% endhighlight %}
 
 
 
@@ -116,10 +116,10 @@ GeoSeries([loads('POINT(1 2)'), loads('POINT(1.5 2.5)'), loads('POINT(2 3)')])
 Then enhance it with a crs and plot it.
 
 
-```python
+{% highlight python %}
 gs = GeoSeries([Point(-120, 45), Point(-121.2, 46), Point(-122.9, 47.5)])
 gs
-```
+{% endhighlight %}
 
 
 
@@ -132,9 +132,9 @@ gs
 
 
 
-```python
+{% highlight python %}
 type(gs), len(gs)
-```
+{% endhighlight %}
 
 
 
@@ -146,18 +146,18 @@ type(gs), len(gs)
 A GeoSeries (and a GeoDataframe) can store a CRS implicitly associated with the geometry column. This is useful as essential spatial metadata and for transformation (reprojection) to another CRS.
 
 
-```python
+{% highlight python %}
 gs.crs = {'init': 'epsg:4326'}
-```
+{% endhighlight %}
 
 The `plot` method accepts standard `matplotlib.pyplot` style options, and can be tweaked like any other `matplotlib` figure.
 
 
-```python
+{% highlight python %}
 gs.plot(marker='*', color='red', markersize=12, figsize=(4, 4))
 plt.xlim([-123, -119.8])
 plt.ylim([44.8, 47.7]);
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_20_0.png)
@@ -166,19 +166,19 @@ plt.ylim([44.8, 47.7]);
 **Let's get a bit fancier, as a stepping stone to GeoDataFrames.** First, we'll define a simple dictionary of lists, that we'll use again later.
 
 
-```python
+{% highlight python %}
 data = {'name': ['a', 'b', 'c'],
         'lat': [45, 46, 47.5],
         'lon': [-120, -121.2, -122.9]}
-```
+{% endhighlight %}
 
 Note this convenient, compact approach to create a list of `Point` shapely objects out of X & Y coordinate lists:
 
 
-```python
+{% highlight python %}
 geometry = [Point(xy) for xy in zip(data['lon'], data['lat'])]
 geometry
-```
+{% endhighlight %}
 
 
 
@@ -192,10 +192,10 @@ geometry
 We'll wrap up by creating a GeoSeries where we explicitly define the index values.
 
 
-```python
+{% highlight python %}
 gs = GeoSeries(geometry, index=data['name'])
 gs
-```
+{% endhighlight %}
 
 
 
@@ -219,10 +219,10 @@ gs
 We'll build on the GeoSeries examples. Let's reuse the `data` dictionary we defined earlier, this time to create a DataFrame.
 
 
-```python
+{% highlight python %}
 df = pd.DataFrame(data)
 df
-```
+{% endhighlight %}
 
 
 
@@ -265,17 +265,17 @@ df
 Now we use the DataFrame and the "list-of-shapely-Point-objects" approach to create a GeoDataFrame. Note the use of two GeoDataFrame attribute columns, which are just two simple Pandas Series.
 
 
-```python
+{% highlight python %}
 geometry = [Point(xy) for xy in zip(df['lon'], df['lat'])]
 gdf = GeoDataFrame(df, geometry=geometry)
-```
+{% endhighlight %}
 
 There's nothing new to visualize, but this time we're using the `plot` method from a GeoDataFrame, *not* from a GeoSeries. They're not exactly the same thing under the hood.
 
 
-```python
+{% highlight python %}
 gdf.plot(marker='*', color='green', markersize=6, figsize=(2, 2));
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_35_0.png)
@@ -286,14 +286,14 @@ gdf.plot(marker='*', color='green', markersize=6, figsize=(2, 2));
 `gpd.read_file` is the workhorse for reading GIS files. It leverages the [fiona](http://toblerity.org/fiona/README.html) package.
 
 
-```python
+{% highlight python %}
 oceans = gpd.read_file(os.path.join(data_pth, "oceans.shp"))
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 oceans.head()
-```
+{% endhighlight %}
 
 
 
@@ -354,9 +354,9 @@ oceans.head()
 The `crs` was read from the shape file's `prj` file:
 
 
-```python
+{% highlight python %}
 oceans.crs
-```
+{% endhighlight %}
 
 
 
@@ -368,9 +368,9 @@ oceans.crs
 Now we finally plot a real map (or blobs, depending on your aesthetics), from a dataset that's global and stored in "geographic" (latitude & longitude) coordinates. It'snot *quite* the actual ocean shapes defined by coastal boundaries, but bear with me.
 
 
-```python
+{% highlight python %}
 oceans.plot();
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_43_0.png)
@@ -379,9 +379,9 @@ oceans.plot();
 `oceans.shp` stores both `Polygon` and `Multi-Polygon` geometry types (but a `Polygon` may be viewed as a `Multi-Polygon` with 1 member). We can get at the geometry types and other geometry properties easily.
 
 
-```python
+{% highlight python %}
 oceans.geom_type
-```
+{% endhighlight %}
 
 
 
@@ -398,10 +398,10 @@ oceans.geom_type
 
 
 
-```python
+{% highlight python %}
 # Beware that these area calculations are in degrees, which is fairly useless
 oceans.geometry.area
-```
+{% endhighlight %}
 
 
 
@@ -418,9 +418,9 @@ oceans.geometry.area
 
 
 
-```python
+{% highlight python %}
 oceans.geometry.bounds
-```
+{% endhighlight %}
 
 
 
@@ -495,9 +495,9 @@ oceans.geometry.bounds
 The `envelope` method returns the bounding box for each polygon. This could be used to create a new spatial column or GeoSeries; directly for plotting; etc.
 
 
-```python
+{% highlight python %}
 oceans.envelope.plot();
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_49_0.png)
@@ -506,9 +506,9 @@ oceans.envelope.plot();
 Does it seem weird that some envelope bounding boxes, such as the North Pacific Ocean, span all longitudes? That's because they're Multi-Polygons with edges at the ends of the -180 and +180 degree coordinate range.
 
 
-```python
+{% highlight python %}
 oceans[oceans['Oceans'] == 'North Pacific Ocean'].plot();
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_51_0.png)
@@ -518,10 +518,10 @@ oceans[oceans['Oceans'] == 'North Pacific Ocean'].plot();
 "[Natural Earth](http://www.naturalearthdata.com) is a public domain map dataset available at 1:10m, 1:50m, and 1:110 million scales. Featuring tightly integrated vector and raster data, with Natural Earth you can make a variety of visually pleasing, well-crafted maps with cartography or GIS software." It (a subset?) comes bundled with GeoPandas and is accessible from the `gpd.datasets` module. We'll use it as a helpful global base layer map.
 
 
-```python
+{% highlight python %}
 world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 world.head(2)
-```
+{% endhighlight %}
 
 
 
@@ -567,9 +567,9 @@ world.head(2)
 Its CRS is also EPSG:4326:
 
 
-```python
+{% highlight python %}
 world.crs
-```
+{% endhighlight %}
 
 
 
@@ -579,9 +579,9 @@ world.crs
 
 
 
-```python
+{% highlight python %}
 world.plot();
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_56_0.png)
@@ -592,9 +592,9 @@ world.plot();
 Here's a compact, quick way of using GeoDataFrame plot method to overlay two GeoDataFrame, while style customizing the styles for each layer.
 
 
-```python
+{% highlight python %}
 world.plot(ax=oceans.plot(cmap='Set2', alpha=1), alpha=1);
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_59_0.png)
@@ -607,7 +607,7 @@ world.plot(ax=oceans.plot(cmap='Set2', alpha=1), alpha=1);
 We can also compose the plot using conventional `matplotlib` steps and options that give us more control.
 
 
-```python
+{% highlight python %}
 f, ax = plt.subplots(1, figsize=(10, 5))
 # Other nice categorical color maps (cmap) include 'Set2' and 'Set3'
 oceans.plot(cmap='Paired', alpha=1, linewidth=0.2, ax=ax)
@@ -615,7 +615,7 @@ world.plot(alpha=1, ax=ax)
 ax.set_ylim([-100, 100])
 ax.set_title('Countries and Ocean Basins')
 plt.axis('equal');
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_62_0.png)
@@ -628,34 +628,34 @@ Read from remote PostgreSQL/PostGIS database and from an OGC WFS service.
 Though the fact that it's on an Amazon Cloud is fairly irrelevant. It could be on a UW server, or on your local computer. The approach is identical.
 
 
-```python
+{% highlight python %}
 import json
 import psycopg2
-```
+{% endhighlight %}
 
 First we'll read the database connection information from a hidden JSON file, to add a level of security and not expose all that information on the github GeoHackWeek repository. This is also a good practice for handling sensitive information.
 
 
-```python
+{% highlight python %}
 with open(os.path.join(data_pth, ".db.json")) as f:
     db_conn_dict = json.load(f)
-```
+{% endhighlight %}
 
 Open the database connection, returning a connection object:
 
 
-```python
+{% highlight python %}
 conn = psycopg2.connect(**db_conn_dict)
-```
+{% endhighlight %}
 
 Now that we've used the connection information, we'll overwrite the `user` and `password` keys and print out the dictionary, to give you a look at what needs to be in it:
 
 
-```python
+{% highlight python %}
 db_conn_dict['user'] = '*****'
 db_conn_dict['password'] = '*****'
 db_conn_dict
-```
+{% endhighlight %}
 
 
 
@@ -669,16 +669,16 @@ db_conn_dict
 
 
 Finally, the magic: Read in the `world_seas` PostGIS dataset (a spatially enabled table in the PostgreSQL database) into a GeoDataFrame, using the opened connection object. Note the use of a simple SQL query string:
-```sql
+{% highlight sql %}
 select * from world_seas
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 seas = GeoDataFrame.from_postgis("select * from world_seas", conn, 
                                  geom_col='geometry', crs={'init': 'epsg:4326'}, 
                                  coerce_float=False)
-```
+{% endhighlight %}
 
 > ## Limitations in reading from PostGIS
 > GeoPandas apparently can not automatically read `geom_col` and `crs` from PostGIS. They must be specified explicitly. That's a hassle that hopefully will be fixed in the future. *Want to contribute the enhancement??*
@@ -687,16 +687,16 @@ seas = GeoDataFrame.from_postgis("select * from world_seas", conn,
 Close the connection. Clean up after yourself.
 
 
-```python
+{% highlight python %}
 conn.close()
-```
+{% endhighlight %}
 
 Let's take a look at the GeoDataFrame.
 
 
-```python
+{% highlight python %}
 seas.head()
-```
+{% endhighlight %}
 
 
 
@@ -777,9 +777,9 @@ seas.head()
 Color the layer based on one column that aggregates individual polygons; using a categorical map, as before, but explicitly selecting the column (`column='oceans'`) and categorical mapping (`categorical=True`); dispplaying an auto-generated legend; while displaying all polygon boundaries. "oceans" (ocean basins, actually) contain one or more 'seas'.
 
 
-```python
+{% highlight python %}
 seas.plot(column='oceans', categorical=True, legend=True, figsize=(14,6));
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_81_0.png)
@@ -792,13 +792,13 @@ seas.plot(column='oceans', categorical=True, legend=True, figsize=(14,6));
 Combine what we've learned. A map overlay, using `world` as a background layer, and filtering `seas` based on an attribute value (from `oceans` column) and an auto-derived GeoPandas geometry attribute (`area`). **`world` is in gray scale, while the filtered `seas` is in color.**
 
 
-```python
+{% highlight python %}
 seas_na_arealt1000 = seas[(seas['oceans'] == 'North Atlantic Ocean') 
                           & (seas.geometry.area < 1000)]
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 seas_na_arealt1000.plot(ax=world.plot(alpha=0.1), cmap='Paired')
 
 # Use the bounds geometry attribute to set a nice
@@ -807,7 +807,7 @@ bounds = seas_na_arealt1000.geometry.bounds
 
 plt.xlim([bounds.minx.min()-5, bounds.maxx.max()+5])
 plt.ylim([bounds.miny.min()-5, bounds.maxy.max()+5]);
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_85_0.png)
@@ -817,9 +817,9 @@ plt.ylim([bounds.miny.min()-5, bounds.maxy.max()+5]);
 The `to_file` method uses the [fiona](http://toblerity.org/fiona/README.html) package to write to a GIS file. The default `driver` for output file format is 'ESRI Shapefile', but many others are available because `fiona` leverages [GDAL/OGR](http://www.gdal.org).
 
 
-```python
+{% highlight python %}
 seas_na_arealt1000.to_file(os.path.join(data_pth, "seas_na_arealt1000.shp"))
-```
+{% endhighlight %}
 
 ### Read from OGC WFS GeoJSON response into a GeoDataFrame
 Use an [Open Geospatial Consortium](http://www.opengeospatial.org) (OGC) [Web Feature Service](https://en.wikipedia.org/wiki/Web_Feature_Service) (WFS) request to obtain geospatial data from a remote source. OGC WFS is an open geospatial standard.
@@ -829,7 +829,7 @@ We won't go into all details here about what's going on. Suffice it to say that 
 The "oa:goainv" layer is a global dataset of monitoring sites and cruises where data relevant to ocean acidification is collected. It's a work in progress from the [Global Ocean Acidification Observation Network (GOA-ON)](http://www.goa-on.org); for additional information see the [GOA-ON Data Portal](http://portal.goa-on.org).
 
 
-```python
+{% highlight python %}
 import requests
 import geojson
 
@@ -839,16 +839,16 @@ params = dict(service='WFS', version='1.0.0', request='GetFeature',
 
 r = requests.get(wfs_url, params=params)
 wfs_geo = geojson.loads(r.content)
-```
+{% endhighlight %}
 
 Let's examine the general characteristics of this GeoJSON object. We'll take advantage of the `__geo_interface__` interface we discussed earlier.
 
 
-```python
+{% highlight python %}
 print(type(wfs_geo))
 print(wfs_geo.keys())
 print(len(wfs_geo.__geo_interface__['features']))
-```
+{% endhighlight %}
 
     <class 'geojson.feature.FeatureCollection'>
     ['crs', 'totalFeatures', u'type', 'features']
@@ -858,16 +858,16 @@ print(len(wfs_geo.__geo_interface__['features']))
 Now we use the `from_features` constructor method to create a GeoDataFrame, passing to it the `features` from the `__geo_interface__` method.
 
 
-```python
+{% highlight python %}
 wfs_gdf = GeoDataFrame.from_features(wfs_geo.__geo_interface__['features'])
-```
+{% endhighlight %}
 
 Display the values for the last feature, as an example.
 
 
-```python
+{% highlight python %}
 wfs_gdf.iloc[-1]
-```
+{% endhighlight %}
 
 
 
@@ -920,10 +920,10 @@ wfs_gdf.iloc[-1]
 Finally, a simple map overlay plot.
 
 
-```python
+{% highlight python %}
 wfs_gdf.plot(ax=world.plot(alpha=1), figsize=(10, 6),
              marker='o', color='red', markersize=4);
-```
+{% endhighlight %}
 
 
 ![png](../fig/04/geopandas_intro_98_0.png)

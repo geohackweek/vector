@@ -5,3 +5,4 @@ _site
 __pycache__
 .ipynb_checkpoints
 .db.json
+.idea
