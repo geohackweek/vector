@@ -37,7 +37,7 @@ keypoints:
 
 GeoJSON Example:
 
-~~~
+{% highlight json %}
 {
   "type": "FeatureCollection",
   "features": [
@@ -65,8 +65,7 @@ GeoJSON Example:
     }
   ]
 }
-~~~
-{: .json}
+{% endhighlight %}
 
 
 ## GIS file formats, RDBMS
