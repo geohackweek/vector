@@ -4,97 +4,42 @@ teaching: 5
 exercises: 0
 ---
 
-## Tutorial provided by Emilio Mayorga, with help from Don Setiawan
+## Tutorial provided by Emilio Mayorga and Don Setiawan
 
 ## Student Prerequesites
 * Python **conda**
-  * To install conda and learn more about it, see the [GeoHackWeek conda tutorial](https://geohackweek.github.io/Introductory/00-conda-tutorial/)
-  * A **conda** environment for the vector tutorial has been set up. It includes `geopandas` and its dependencies, which include (for vector-handling packages) `shapely`, `fiona`, `pyproj`, `descartes` and `pysal`, in addition to `pandas`, `numpy`, etc. These will be handled automatically by the conda environment. Additional conda packages available in the environment include `geojson`, `folium` (for interactive maps in Jupyter notebooks), `cartopy` and `mplleaflet`,`rasterstats` for simplified raster-vector analysis, and `psycopg2` for access to vector data stored in PostGIS. This environment will be available in the Docker image. It may be created independently with this command (once you understand how to work with conda): `conda create -c conda-forge -n vectorenv python=2.7 geopandas geojson pysal rasterstats seaborn mplleaflet folium cartopy jupyter`
+  * To install conda and learn more about it, see the [GeoHackWeek conda tutorial](https://geohackweek.github.io/Introductory/01-conda-tutorial/)
+  * A **conda** environment for the vector tutorial has been set up. It includes `geopandas` and its dependencies, which include (for vector-handling packages) `shapely`, `fiona`, `pyproj`, `descartes` and `pysal`, in addition to `pandas`, `numpy`, etc. These will be handled automatically by the conda environment. Additional conda packages available in the environment include `geojson`, `folium` (interactive maps in Jupyter notebooks), `rasterstats` (simplified raster-vector analysis), and `psycopg2` (access to vector data stored in PostGIS, in this case hosted on the cloud on Amazon Web Services).
+* Using JupyterHub; see the [GeoHackWeek JupyterHub tutorial](https://geohackweek.github.io/Introductory/05-Jupyter-tutorial/)
 * Ideally some familiarity with GIS concepts regarding vector spatial objects (points, lines, polygons, etc).
 
 
-## Docker Instruction to follow along
+### Creating the `vectorenv` conda environment on your computer
 
-Docker image is located on this link: [geohackweek2016/vectortutorial](https://hub.docker.com/r/geohackweek2016/vectortutorial/)
+Open a terminal window and type the commands to create the environment and "activate" it.
 
-Here are the steps to create a docker container that runs the ipython notebook within the docker container:
+(If you're using miniconda you'll probably need to first add it to your path with a statement like this one on the terminal window: `export PATH=$HOME/miniconda/bin:$PATH`)
 
-**Linux/OS X**
+{% highlight bash %}
+conda env create environment.yml  # Will create an environment called "vectorenv"
+source activate vectorenv  # OSX and Linux
+activate vectorenv  # Windows
+{% endhighlight %}
 
-Pull the docker image
-  
-~~~
-$ docker pull geohackweek2016/vectortutorial
-~~~
-{: .bash}
+### Starting Jupyter notebooks
 
-Create docker container
+On Windows and MacOSX you may have a conda GUI application already installed, specially if you installed Anaconda. That application should let you select the `vectorenv` environment, then launch Jupyter notebook with that environment.
 
-~~~
-$ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortutorial
-~~~
-{: .bash}
+Otherwise, on the command shell, you can launch Jupyter notebooks (after activating the environment as described above) like this:
 
-Activate `vectorenv` conda environment
+{% highlight bash %}
+jupyter notebook
+{% endhighlight %}
 
-~~~
-# source activate vectorenv
-~~~
-{: .bash}
-
-Run jupyter notebook
-
-~~~
-# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
-~~~
-{: .bash}
-
-Open web browser on your local host machine and put `localhost:8888` on your address bar to view notebook.
-
-**Windows**
-
-In the docker prompt:
-
-~~~
-$ docker-machine ip default
-~~~
-{: .bash}
-
-*let's call the returned values the "IPaddress"*
-
-Pull the image
-
-~~~
-$ docker pull geohackweek2016/vectortutorial
-~~~
-{: .bash}
-
-Create docker container
-
-~~~
-$ docker run -i -t -p 8888:8888 --name vector_tutorial geohackweek2016/vectortutorial
-~~~
-{: .bash}
-
-Activate `vectorenv` conda environment
-
-~~~
-# source activate vectorenv
-~~~
-{: .bash}
-
-Run jupyter notebook
-
-~~~
-# jupyter notebook --notebook-dir=/notebooks --ip="*" --port=8888 --no-browser
-~~~
-{: .bash}
-
-Open web browser on your local host machine and put `IPaddress:8888` on your address bar to view notebook.
 
 ## Overview
-1. Geospatial Concepts
-2. Encodings, Formats and Libraries
-3. GeoPandas Introduction
-4. GeoPandas Advanced Topics
-
+1. Introduction
+2. Geospatial Concepts
+3. Encodings, Formats and Libraries
+4. GeoPandas Introduction
+5. GeoPandas Advanced Topics
