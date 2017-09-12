@@ -54,7 +54,7 @@ Following OGC SF lingo, a **feature** refers to a spatial entity (any of the abo
 
 ## Geospatial Operations
 
-A number of relationships and operations have been defined on individual geometric objects or across objects. These include `buffer`, `dissolve`, `convex hull`, `touch`, `intersection`, `union`, and others. The execution of these operations is at the heart of vector GIS. We won't cover them in any comprehensive way, but will only present examples to illustrate the capabilities of the Python `GeoPandas` package and other vector tools. Here are a few visual examples (grabbed from [here](http://tsusiatsoftware.net/jts/files/JTS_Library_for_Geometry_2011.pdf)) of "overlay" (across objects) geospatial operations:
+A number of relationships and operations have been defined on individual geometric objects or across objects. These include `buffer`, `dissolve`, `convex hull`, `touch`, `intersection`, `union`, and others. The execution of these operations is at the heart of vector GIS. We won't cover them in any comprehensive way, but will only present examples to illustrate the capabilities of the Python `GeoPandas` package and other vector tools. Here are a few visual examples (grabbed from [here](https://web.archive.org/web/20160928234929/http://tsusiatsoftware.net/jts/files/JTS_Library_for_Geometry_2011.pdf)) of "overlay" (across objects) geospatial operations:
 
 ![png](../fig/02/JTS_overlay_illustrations.png)
 

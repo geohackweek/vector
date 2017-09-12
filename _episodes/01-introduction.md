@@ -16,6 +16,8 @@ exercises: 0
 
 ### Creating the `vectorenv` conda environment on your computer
 
+`vectorenv` is a Python 3.6 conda environment. But the two notebooks in this tutorial have also been successfully tested with Python 2.7.
+
 Open a terminal window and type the commands to create the environment and "activate" it.
 
 (If you're using miniconda you'll probably need to first add it to your path with a statement like this one on the terminal window: `export PATH=$HOME/miniconda/bin:$PATH`)
