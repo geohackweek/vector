@@ -401,7 +401,7 @@ oceans.crs
 
 
 {% highlight json %}
-    {'init': 'epsg:4326'}
+    {"init": "epsg:4326"}
 {% endhighlight %}
 
 
@@ -641,7 +641,7 @@ world.crs
 
 
 {% highlight json %}
-    {'init': 'epsg:4326'}
+    {"init": "epsg:4326"}
 {% endhighlight %}
 
 
@@ -725,11 +725,11 @@ db_conn_dict
 
 
 {% highlight json %}
-    {'database': 'geohack',
-     'host': 'dssg2017.csya4zsfb6y4.us-east-1.rds.amazonaws.com',
-     'password': '*****',
-     'port': 5432,
-     'user': '*****'}
+    {"database": "geohack",
+     "host": "dssg2017.csya4zsfb6y4.us-east-1.rds.amazonaws.com",
+     "password": "*****",
+     "port": 5432,
+     "user": "*****"}
 {% endhighlight %}
 
 
@@ -863,7 +863,7 @@ seas.plot(column='oceans', categorical=True, legend=True, figsize=(14, 6));
 
 
 > ## Additional plotting examples
-> See http://darribas.org/gds16/content/labs/lab_03.html for great examples of lots of other cool GeoPandas map plotting tips.
+> See [http://darribas.org/gds16/content/labs/lab_03.html](http://darribas.org/gds16/content/labs/lab_03.html) for great examples of lots of other cool GeoPandas map plotting tips.
 {: .callout}
 
 Combine what we've learned. A map overlay, using `world` as a background layer, and filtering `seas` based on an attribute value (from `oceans` column) and an auto-derived GeoPandas geometry attribute (`area`). **`world` is in gray, while the filtered `seas` is in color.**
