@@ -76,11 +76,11 @@ GeoJSON Example:
 * Most of the time you will likely interact (read/write) with geospatial data in common (open or otherwise) GIS file formats and geospatial relational database servers.
   * File formats: Shape files (the most ubiquitous), GeoPackage (based on SQLite), KML, GeoJSON, ESRI File Geodatabase (proprietary but fairly accessible), etc
   * Relational Database servers with geospatial extensions: PostgreSQL, PostGIS, MS SQL Server, Oracle, and to a lesser extent MySQL
-* Common Python packages: [OGR](http://gdal.org/python/) (see also [http://gdal.org/](http://gdal.org/) and [https://pcjericks.github.io/py-gdalogr-cookbook/](https://pcjericks.github.io/py-gdalogr-cookbook/), [fiona](https://github.com/Toblerity/Fiona), [PyShp](https://github.com/GeospatialPython/pyshp)
+* Common Python packages: [OGR](http://gdal.org/python/) (see also [http://gdal.org/](http://gdal.org/) and [https://pcjericks.github.io/py-gdalogr-cookbook/](https://pcjericks.github.io/py-gdalogr-cookbook/)), [fiona](https://github.com/Toblerity/Fiona), [PyShp](https://github.com/GeospatialPython/pyshp)
 
 
 ## Standard encodings and libraries for projections, codes
 * [Projections]((https://en.wikipedia.org/wiki/Map_projection)) and [Coordinate Reference Systems (**CRS**)](https://en.wikipedia.org/wiki/Spatial_reference_system) are fundamental!
-* We'll get into this in more detail in the GeoPandas notebooks, and in another tutoria
+* We'll get into this in more detail in the GeoPandas notebooks, and in another tutorial
 * Some common libraries: pyepsg, pyproj, `fiona.from_epsg`, `GeoPandas.to_srs`
 
