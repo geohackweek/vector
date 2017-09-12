@@ -18,7 +18,7 @@ keypoints:
 
 ## Vector Geospatial Data
 
-If you're coming from the Earth Sciences, we're *not referring to fields of arrows* indicating direction and magnitude .... Instead, "vector" is a term commonly used in Geographical Information Systems (GIS) to refer to **discrete geometric entities** (also referred to as objects, features or shapes) that represent or approximate distinct "things" on the land surface (or the bottom of the sea, or Mars); these entity or object types typically are *not used to represent continuously varying fields, rasters or other tessellations*.
+If you're coming from the Earth Sciences, we're *not referring to fields of arrows* indicating direction and magnitude .... Instead, "vector" is a term commonly used in Geographical Information Systems (GIS) to refer to **discrete geometric entities** (*also referred to as objects, primitives, shapes or features*) that represent or approximate distinct "things" on the land surface (or the bottom of the sea, or Mars); these entity or object types typically are *not used to represent continuously varying fields, rasters or other tessellations*.
 
 Examples include points and polygons.
 
