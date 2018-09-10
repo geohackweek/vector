@@ -1,6 +1,6 @@
 ---
 title: "Encodings, Formats and Libraries"
-teaching: 10
+teaching: 5
 exercises: 0
 questions:
 - "What are common ways to encode vector geospatial data in Python, and how do they relate to broader encoding standards?"
