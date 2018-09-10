@@ -1,6 +1,6 @@
 ---
 title: "GeoPandas Advanced Topics"
-teaching: 30
+teaching: 35
 exercises: 0
 questions:
 - "What additional capabilities does GeoPandas provide, including data access, plotting and analysis?"

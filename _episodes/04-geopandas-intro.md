@@ -1,6 +1,6 @@
 ---
 title: "GeoPandas Introduction"
-teaching: 30
+teaching: 40
 exercises: 0
 questions:
 - "What is GeoPandas?"
