@@ -18,7 +18,7 @@ keypoints:
 
 Standards exist for text (and binary) encoding of the geometry and feature types we saw. These include OGC/ISO [Well-Known Text (WKT)](https://en.wikipedia.org/wiki/Well-known_text) and Well-Known Binary (WKB), OGC [Geography Markup Language (GML)](https://en.wikipedia.org/wiki/Geography_Markup_Language), and [GeoJSON](http://geojson.org/) (based on JSON, and now an ISO standard). GML is a complex XML-based encoding that we won't discuss much here. We also won't touch on WKB in much detail. In this tutorial we'll focus on **WKT** and specially **GeoJSON.**
 
-### WKT
+### Well-Known Text (WKT)
 WKT text representations of geometric entities are fairly intuitive. Here are some examples of the basic geometric entities we saw earlier (where coordinates are ordered as X Y):
 * `POINT(0 0)`
 * `LINESTRING(0 0, 1 1, 1 2)`
@@ -76,6 +76,7 @@ GeoJSON Example:
 * Most of the time you will likely interact (read/write) with geospatial data in common (open or otherwise) GIS file formats and geospatial relational database servers.
   * File formats: Shape files (the most ubiquitous), GeoPackage (based on SQLite), KML, GeoJSON, ESRI File Geodatabase (proprietary but fairly accessible), etc
   * Relational Database servers with geospatial extensions: PostgreSQL, PostGIS, MS SQL Server, Oracle, and to a lesser extent MySQL
+  * [Here](https://en.wikipedia.org/wiki/GIS_file_formats) and [here](https://gisgeography.com/gis-formats/) are two good lists of common GIS file formats, including some relational databases.
 * Common Python packages: [OGR](http://gdal.org/python/) (see also [http://gdal.org/](http://gdal.org/) and [https://pcjericks.github.io/py-gdalogr-cookbook/](https://pcjericks.github.io/py-gdalogr-cookbook/)), [fiona](https://github.com/Toblerity/Fiona), [PyShp](https://github.com/GeospatialPython/pyshp)
 
 
