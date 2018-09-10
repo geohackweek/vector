@@ -21,6 +21,7 @@ keypoints:
 
 
 ## GeoPandas: Pandas + geometry data type + custom geo goodness
+[Emilio Mayorga, University of Washington](https://github.com/emiliom/). 2018-9-9
 
 ## 1. Background
 
@@ -31,7 +32,7 @@ keypoints:
 > * While GeoPandas spatial objects can be assigned a Coordinate Reference System (`CRS`), operations can not be performed across CRS's. Plus, geodetic ("unprojected", lat-lon) CRS are not handled in a special way; the area of a geodetic polygon will be in degrees.
 {: .callout}
 
-GeoPandas is still fairly young, but it builds on mature and stable and widely used packages (Pandas, shapely, etc). Expect continued growth, and possibly some kinks.
+GeoPandas builds on mature, stable and widely used packages (Pandas, shapely, etc). It is being supported more and more as a preferred Python data structure for geospatial vector data.
 
 **When should you use GeoPandas?**
 * For exploratory data analysis, including in Jupyter notebooks.
@@ -39,11 +40,11 @@ GeoPandas is still fairly young, but it builds on mature and stable and widely u
 * If you're comfortable with Pandas, R dataframes, or tabular/relational approaches.
 
 **When it may not be the best tool?**
-* For polished map creation and multi-layer, interactive visualization; if you're comfortable with GIS, use a desktop GIS like QGIS! You can generate intermediate GIS files and plots with GeoPandas, then shift over to QGIS. Or refine the plots in Python with matplotlib or additional packages.
-* If you need high performance, though I'm not completely sure. Performance increased recently and substantial enhancements are in the works (including possibly a [Dask](http://dask.pydata.org) parallelization implementation.
+* For polished map creation and multi-layer, interactive visualization; if you're comfortable with GIS software, one option is to use a desktop GIS like QGIS! You can generate intermediate GIS files and plots with GeoPandas, then shift over to QGIS. Or refine the plots in Python with matplotlib or additional packages. GeoPandas can help you manage and pre-process the data, and do initial visualizations.
+* If you need very high performance, though I'm not sure about current limitations. Performance has been increasing and substantial enhancements are in the works (including possibly a [Dask](http://dask.pydata.org) parallelization implementation).
 
 ## 2. Set up packages and data file path
-We'll use these throughout the rest of the tutorial. Note that we're not using the latest and greatest `Matplotlib`, 2.x. Some package dependency is forcing the use of `Matplotlib` 1.5.
+We'll use these throughout the rest of the tutorial.
 
 
 {% highlight python %}
@@ -54,11 +55,6 @@ import os
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-# The two statemens below are used mainly to set up a plotting
-# default style that's better than the default from Matplotlib 1.x
-# Matplotlib 2.0 supposedly has better default styles.
-import seaborn as sns
-plt.style.use('bmh')
 
 from shapely.geometry import Point
 import pandas as pd
@@ -76,7 +72,7 @@ mpl.__version__, pd.__version__, gpd.__version__
 
 
 
-    ('1.5.3', '0.20.3', '0.3.0')
+    ('2.2.3', '0.23.4', '0.4.0')
 
 
 
@@ -88,16 +84,15 @@ A `GeoSeries` is made up of an index and a GeoPandas `geometry` data type. This 
 
 GeoPandas has six classes of **geometric objects**, corresponding to the three basic single-entity geometric types and their associated homogeneous collections of multiple entities:
 * **Single entity (core, basic types):**
-  - Point
-  - Line (*formally known as a LineString*)
-  - Polygon
+  * Point
+  * Line (*formally known as a LineString*)
+  * Polygon
 * **Homogeneous entity collections:**
-  - Multi-Point
-  - Multi-Line (*MultiLineString*)
-  - Multi-Polygon
+  * Multi-Point
+  * Multi-Line (*MultiLineString*)
+  * Multi-Polygon
 
 A `GeoSeries` is then a list of geometry objects and their associated index values.
-
 
 > ## Entries (rows) in a GeoSeries can store different geometry types
 > GeoPandas does not constrain the geometry column to be of the same geometry type. This can lead to unexpected problems if you're not careful! Specially if you're used to thinking of a GIS file format like shape files, which store a single geometry type. Also beware that certain export operations (say, to shape files ...) will fail if the list of geometry objects is heterogeneous.
@@ -164,8 +159,6 @@ gs.crs = {'init': 'epsg:4326'}
 
 The `plot` method accepts standard `matplotlib.pyplot` style options, and can be tweaked like any other `matplotlib` figure.
 
-*Note: There may be something odd happening with plot `markersize` ...*
-
 
 {% highlight python %}
 gs.plot(marker='*', color='red', markersize=100, figsize=(4, 4))
@@ -174,7 +167,7 @@ plt.ylim([44.8, 47.7]);
 {% endhighlight %}
 
 
-![png](../fig/04/geopandas_intro_22_0.png)
+![png](../fig/04/geopandas_intro_21_0.png)
 
 
 **Let's get a bit fancier, as a stepping stone to GeoDataFrames.** First, we'll define a simple dictionary of lists, that we'll use again later.
@@ -186,7 +179,7 @@ data = {'name': ['a', 'b', 'c'],
         'lon': [-120, -121.2, -122.9]}
 {% endhighlight %}
 
-Note this convenient, compact approach to create a list of `Point` shapely objects out of X & Y coordinate lists:
+Note this convenient, compact approach to create a list of `Point` shapely objects out of X & Y coordinate lists (an alternate approach is shown in the Advanced notebook):
 
 
 {% highlight python %}
@@ -197,9 +190,9 @@ geometry
 
 
 
-    [<shapely.geometry.point.Point at 0x7f2acc658c50>,
-     <shapely.geometry.point.Point at 0x7f2acc6582b0>,
-     <shapely.geometry.point.Point at 0x7f2acc658f98>]
+    [<shapely.geometry.point.Point at 0x7fb9438989e8>,
+     <shapely.geometry.point.Point at 0x7fb9438b46d8>,
+     <shapely.geometry.point.Point at 0x7fb9438b4e10>]
 
 
 
@@ -223,7 +216,7 @@ gs
 
 ## 4. GeoDataFrames: The real power tool
 
-> ## Additional notes
+> ## Additional Notes
 > * It's worth noting that a GeoDataFrame can be described as a *Feature Collection*, where each row is a *Feature*, a *geometry* column is defined (thought the name of the column doesn't have to be "geometry"), and the attribute *Properties* includes the other columns (the Pandas DataFrame part, if you will).
 > * More than one column can store geometry objects! We won't explore this capability in this tutorial.
 {: .callout}
@@ -242,46 +235,46 @@ df
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>name</th>
       <th>lat</th>
       <th>lon</th>
-      <th>name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>a</td>
       <td>45.0</td>
       <td>-120.0</td>
-      <td>a</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>b</td>
       <td>46.0</td>
       <td>-121.2</td>
-      <td>b</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>c</td>
       <td>47.5</td>
       <td>-122.9</td>
-      <td>c</td>
     </tr>
   </tbody>
 </table>
@@ -305,7 +298,7 @@ gdf.plot(marker='*', color='green', markersize=50, figsize=(3, 3));
 {% endhighlight %}
 
 
-![png](../fig/04/geopandas_intro_37_0.png)
+![png](../fig/04/geopandas_intro_36_0.png)
 
 
 ### FINALLY, we get to work with real data! Load and examine the simple "oceans" shape file
@@ -326,17 +319,17 @@ oceans.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -413,7 +406,7 @@ oceans.plot(cmap='Set2', figsize=(10, 10));
 {% endhighlight %}
 
 
-![png](../fig/04/geopandas_intro_45_0.png)
+![png](../fig/04/geopandas_intro_44_0.png)
 
 
 `oceans.shp` stores both `Polygon` and `Multi-Polygon` geometry types (a `Polygon` may also be viewed as a `Multi-Polygon` with 1 member). We can get at the geometry types and other geometry properties easily.
@@ -466,17 +459,17 @@ oceans.geometry.bounds
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -553,7 +546,7 @@ oceans.envelope.plot(cmap='Set2', figsize=(8, 8), alpha=0.7, edgecolor='black');
 {% endhighlight %}
 
 
-![png](../fig/04/geopandas_intro_51_0.png)
+![png](../fig/04/geopandas_intro_50_0.png)
 
 
 Does it seem weird that some envelope bounding boxes, such as the North Pacific Ocean, span all longitudes? That's because they're Multi-Polygons with edges at the ends of the -180 and +180 degree coordinate range.
@@ -565,7 +558,7 @@ plt.ylim([-100, 100]);
 {% endhighlight %}
 
 
-![png](../fig/04/geopandas_intro_53_0.png)
+![png](../fig/04/geopandas_intro_52_0.png)
 
 
 ### Load "Natural Earth" countries dataset, bundled with GeoPandas
@@ -581,17 +574,17 @@ world.head(2)
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -651,7 +644,7 @@ world.plot(figsize=(8, 8));
 {% endhighlight %}
 
 
-![png](../fig/04/geopandas_intro_58_0.png)
+![png](../fig/04/geopandas_intro_57_0.png)
 
 
 ### Map plot overlays: Plotting multiple spatial layers
@@ -664,7 +657,7 @@ world.plot(ax=oceans.plot(cmap='Set2', figsize=(10, 10)), facecolor='gray');
 {% endhighlight %}
 
 
-![png](../fig/04/geopandas_intro_61_0.png)
+![png](../fig/04/geopandas_intro_60_0.png)
 
 
 We can also compose the plot using conventional `matplotlib` steps and options that give us more control.
@@ -682,8 +675,12 @@ plt.axis('equal');
 {% endhighlight %}
 
 
-![png](../fig/04/geopandas_intro_63_0.png)
+![png](../fig/04/geopandas_intro_62_0.png)
 
+
+> ## Time to explore
+> Let's stop for a bit to explore on your own, hack with your neighbors, ask questions.
+{: .callout}
 
 ## 5. Extras: Reading from other data source types; fancier plotting
 * Read from remote PostgreSQL/PostGIS database.
@@ -725,11 +722,11 @@ db_conn_dict
 
 
 {% highlight json %}
-    {"database": "geohack",
-     "host": "dssg2017.csya4zsfb6y4.us-east-1.rds.amazonaws.com",
-     "password": "*****",
+    {"host": "dssg2017.csya4zsfb6y4.us-east-1.rds.amazonaws.com",
      "port": 5432,
-     "user": "*****"}
+     "database": "geohack",
+     "user": "*****",
+     "password": "*****"}
 {% endhighlight %}
 
 
@@ -738,13 +735,20 @@ Finally, the magic: Read in the `world_seas` PostGIS dataset (a spatially enable
 
 {% highlight python %}
 seas = gpd.read_postgis("select * from world_seas", conn, 
-                        geom_col='geom', crs={'init': 'epsg:4326'}, 
                         coerce_float=False)
 {% endhighlight %}
 
-> ## Limitations in reading from PostGIS
-> GeoPandas apparently can not automatically read `geom_col` and `crs` from PostGIS. They must be specified explicitly. That's a hassle that hopefully will be fixed in the future. [*Want to contribute one of these enhancement??*](https://github.com/geopandas/geopandas/issues/451)
-{: .callout}
+
+{% highlight python %}
+seas.crs
+{% endhighlight %}
+
+
+
+
+    {'init': 'epsg:4326'}
+
+
 
 Close the connection. Clean up after yourself.
 
@@ -764,17 +768,17 @@ seas.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -853,8 +857,6 @@ Color the layer based on one column that aggregates individual polygons; using a
 
 
 {% highlight python %}
-# The geopandas plot method doesn't currently support the matplotlib legend location parameter,
-# so we can't control the legend location w/o using additional matplotlib machinery
 seas.plot(column='oceans', categorical=True, legend=True, figsize=(14, 6));
 {% endhighlight %}
 
@@ -863,8 +865,9 @@ seas.plot(column='oceans', categorical=True, legend=True, figsize=(14, 6));
 
 
 > ## Additional plotting examples
-> See [http://darribas.org/gds16/content/labs/lab_03.html](http://darribas.org/gds16/content/labs/lab_03.html) for great examples of lots of other cool GeoPandas map plotting tips.
+> See [http://darribas.org/gds17/labs/Lab_02.html](http://darribas.org/gds17/labs/Lab_02.html) for great examples of lots of other cool GeoPandas map plotting tips.
 {: .callout}
+
 
 Combine what we've learned. A map overlay, using `world` as a background layer, and filtering `seas` based on an attribute value (from `oceans` column) and an auto-derived GeoPandas geometry attribute (`area`). **`world` is in gray, while the filtered `seas` is in color.**
 
@@ -930,7 +933,7 @@ print(len(wfs_geo.__geo_interface__['features']))
 
     <class 'geojson.feature.FeatureCollection'>
     dict_keys(['type', 'totalFeatures', 'crs', 'features'])
-    544
+    572
 
 
 Now use the `from_features` constructor method to create a GeoDataFrame directly from the  `geojson.feature.FeatureCollection` object.
@@ -960,45 +963,50 @@ wfs_gdf.iloc[-1]
 
 
 
-    Oceans                                                    North Atlantic Ocean
+    Oceans                                                            Indian Ocean
     additional_organizations                                                      
     agency                                                                        
     city                                                                          
     comments                                                                      
     comments_about_overlaps                                                       
-    contact_email                     akoertzinger@geomar.de; tsteinhoff@geomar.de
-    contact_name                                  Arne Körtzinger;Tobias Steinhoff
-    country                                                                Germany
-    data_url                                                 http://www.socat.info
+    contact_email                                                                 
+    contact_name                              http://www.go-ship.org/Contacts.html
+    country                                                                       
+    data_url                            https://cchdo.ucsd.edu/cruise/33RO20180423
     department                                                                    
     deploy_date                                                                   
     depth_range                                                                   
     duration                                                                      
-    frequency                                           1 crossing every 2.5 weeks
-    geometry                                                  POINT (-53.53 46.27)
-    id                                                                         589
-    latitude                                                                 46.27
-    line_xy                      -53.53,46.27::-53.28,46.33::-53.03,46.38::-52....
+    frequency                                                                     
+    geometry                                                      POINT (54.5 -30)
+    id                                                                         626
+    latitude                                                                   -30
+    line_xy                      54.5,-30.0::54.4975,-29.494::54.4988,-28.9747:...
     location                                                                      
-    longitude                                                               -53.53
+    longitude                                                                 54.5
     method                                                                        
-    method_documentation         Carbon system including CO2 fluxes in the Nort...
-    organization                   GEOMAR Helmholtz Centre for Ocean Research Kiel
-    organization_abbreviation                                               GEOMAR
+    method_documentation                                                          
+    organization                 Global Ocean Ship-Based Hydrographic Investiga...
+    organization_abbreviation                                              GO-SHIP
     overlaps_with                                                                 
-    parameters                       pCO2; dissolved oxygen; salinity; temperature
+    parameters                   dissolved inorganic carbon; total alkalinity; ...
     parameters_planned                                                            
-    platform_name                                                           GEOMAR
-    platform_name_kml                                                      589.kml
-    platform_type                                                              VOS
-    point_xy                                                          -53.53,46.27
-    project                                                                       
+    platform_name                                                             I07N
+    platform_name_kml                                                      626.kml
+    platform_type                                                               RH
+    point_xy                                                            54.5,-30.0
+    project                                                                GO-SHIP
+    seas                                                              Indian Ocean
     sensors                                                                       
-    source_doc                                                     on-line request
-    track_pt_lat                                                             46.27
-    track_pt_lon                                                            -53.53
-    type                                                                open ocean
-    url                             http://www.geomar.de/en/research/expeditionen/
-    Name: 543, dtype: object
+    source_doc                                                   RepeatHydrography
+    track_pt_lat                                                             -30.0
+    track_pt_lon                                                              54.5
+    type                                                                          
+    url                                 https://cchdo.ucsd.edu/cruise/33RO20180423
+    Name: 571, dtype: object
 
 
+
+> ## Time to Explore
+> Let's stop for a bit to explore on your own, hack with your neighbors, ask questions. Then we'll transition to the next notebook, on more advanced topics.
+{: .callout}
