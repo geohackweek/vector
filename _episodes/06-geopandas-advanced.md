@@ -20,7 +20,7 @@ keypoints:
 
 ## View episode content in a Jupyter Notebook
 
-[Open the Jupyter Notebook in nbviewer](https://github.com/geohackweek/tutorial_contents/blob/master/vector/notebooks/geopandas_advanced.ipynb)
+[Open the Jupyter Notebook in nbviewer](http://nbviewer.jupyter.org/github/geohackweek/tutorial_contents/blob/master/vector/notebooks/geopandas_advanced.ipynb)
 
 
 ## GeoPandas: Advanced topics

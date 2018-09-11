@@ -17,7 +17,7 @@ keypoints:
 
 ## View episode content in a Jupyter Notebook
 
-[Open the Jupyter Notebook in nbviewer](https://github.com/geohackweek/tutorial_contents/blob/master/vector/notebooks/geopandas_intro.ipynb)
+[Open the Jupyter Notebook in nbviewer](http://nbviewer.jupyter.org/github/geohackweek/tutorial_contents/blob/master/vector/notebooks/geopandas_intro.ipynb)
 
 
 ## GeoPandas: Pandas + geometry data type + custom geo goodness
