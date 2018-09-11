@@ -14,7 +14,7 @@ objectives:
 - Using folium to create interactive maps from a GeoDataFrame
 - Explore simple but powerful capabilities offered by the rasterstats package to generate summaries and statistics of raster properties over vector features, and explore these via GeoPandas.
 keypoints:
-- GeoPandas offers powerful capabilities and interacts with other tools.
+- While still a fairly young package, GeoPandas offers powerful capabilities.
 - GeoJSON and the common `__geo_interface__` enable convenient and widespread geospatial data object exchange across geospatial packages in Python.
 ---
 
@@ -111,9 +111,9 @@ hydrobas_ww.crs
 
 
 
-{% highlight json %}
-    {"init": "epsg:4326"}
-{% endhighlight %}
+
+    {'init': 'epsg:4326'}
+
 
 
 
@@ -308,11 +308,11 @@ hydrobas_ww_p7.plot(column='pfaf_7', cmap='tab20', categorical=True, edgecolor='
 
 ### Reproject (transform) to WA State Plane South, epsg:2927
 Partly so we can calculate polygon areas in linear units, not geodetic degrees. But also because that's the projection used by most state and local governments in Washington.
-* [http://epsg.io/2927](http://epsg.io/2927)
-* [http://spatialreference.org/ref/epsg/2927/](http://spatialreference.org/ref/epsg/2927/)
+* http://epsg.io/2927
+* http://spatialreference.org/ref/epsg/2927/
 * [Report from http://www.epsg-registry.org](http://www.epsg-registry.org/report.htm?type=selection&entity=urn:ogc:def:crs:EPSG::2927&reportDetail=short&style=urn:uuid:report-style:default-with-code&style_name=OGP%20Default%20With%20Code&title=EPSG:2927)
 
-No need to go to a web site to learn more about what `epsg:2927` is. Use `pyepsg`, which issues queries to [http://epsg.io](http://epsg.io) web services.
+No need to go to a web site to learn more about what `epsg:2927` is. Use `pyepsg`, which issues queries to http://epsg.io web services.
 
 
 {% highlight python %}
@@ -437,8 +437,10 @@ hydrobas_ww_p7_wasp.head(3)
 Plot the choloropleth, using `area_mi2`.
 
 The "fisher_jenks" value segmentation `scheme` (using 7 segments, k=7) used is one of the available `pysal.esda.mapclassify.Map_Classifier` classifiers from the powerful [PySAL package](http://pysal.org/) (Python Spatial Analysis Library); GeoPandas can use these classifiers if PySAL is installed, as it is here. To get the list of classifiers, use:
-> import pysal
-> print(pysal.esda.mapclassify.Map_Classifier.__doc__)
+```python
+import pysal
+print(pysal.esda.mapclassify.Map_Classifier.__doc__)
+```
 
 
 {% highlight python %}
