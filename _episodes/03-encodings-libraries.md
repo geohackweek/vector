@@ -27,19 +27,17 @@ WKT text representations of geometric entities are fairly intuitive. Here are so
 
 
 ## GeoJSON and `__geo_interface__` interface
-* GeoJSON arose as a community convention leveraging the ubiquity of JSON encoding, specially on the web. Being JSON, it maps easily into Python dictionaries.
-* See [http://geojson.org](http://geojson.org), including examples at [http://geojson.org/geojson-spec.html#examples](http://geojson.org/geojson-spec.html#examples)
-* Additional resources/tools online
+
+GeoJSON arose as a community convention leveraging the ubiquity of JSON encoding, specially on the web. Being JSON, it maps easily into Python dictionaries. See [http://geojson.org](http://geojson.org), including examples at [http://geojson.org/geojson-spec.html#examples](http://geojson.org/geojson-spec.html#examples). Its straightforward data structure has made it popular for data exchange in web applications and for passing data between software libraries.
+
+The Python `__geo_interface__` method is being widely adopted for passing feature data around between code packages as GeoJSON-like objects (basically, Python dictionaries). We'll explore this method in the next two episodes. To read more about it, see [GeoJSON and the geo interface for Python](https://sgillies.net/2013/06/27/geojson-and-the-geo-interface-for-python.html),  [https://gist.github.com/sgillies/2217756](https://gist.github.com/sgillies/2217756), and [Processing vector features in Python](http://www.perrygeo.com/processing-vector-features-in-python.html). For converting to and from convenient, Pythonic, GeoJSON-like objects, the light-weight [`geojson`](https://github.com/frewsxcv/python-geojson) package is a good option.
+
+* Additional GeoJSON resources and tools:
   * GitHub lets you view GeoJSON files natively (see the [minimum requirements here](https://help.github.com/articles/mapping-geojson-files-on-github/))
   * GitHub's [http://geojson.io](http://geojson.io) provides interactive creation and viewing of small GeoJSON serializations (as strings or files)
   * [http://dropchop.io](http://dropchop.io). Spatial operations on GeoJSON data, online and interactive. Brought to you by the great people of [CUGOS](https://cugos.org/), an open geospatial community in the broader Puget Sound area.
-* Python `__geo_interface__` method: Passing feature data around between code packages, as GeoJSON-like objects
-  * [GeoJSON and the geo interface for Python](https://sgillies.net/2013/06/27/geojson-and-the-geo-interface-for-python.html). See also [https://gist.github.com/sgillies/2217756](https://gist.github.com/sgillies/2217756)
-  * [Processing vector features in Python](http://www.perrygeo.com/processing-vector-features-in-python.html)
-* [`geojson`](https://github.com/frewsxcv/python-geojson) is a light-weight package for converting to and from convenient, Pythonic, GeoJSON-like objects.
 
-
-GeoJSON Example:
+GeoJSON Example of a point feature collection with two features:
 
 {% highlight json %}
 {
@@ -75,9 +73,9 @@ GeoJSON Example:
 ## GIS file formats, including Relational Databases (RDBMS)
 * Most of the time you will likely interact (read/write) with geospatial data in common (open or otherwise) GIS file formats and geospatial relational database servers.
   * File formats: Shape files (the most ubiquitous), GeoPackage (based on SQLite), KML, GeoJSON, ESRI File Geodatabase (proprietary but fairly accessible), etc
-  * Relational Database servers with geospatial extensions: PostgreSQL, PostGIS, MS SQL Server, Oracle, and to a lesser extent MySQL
+  * Relational Database servers with geospatial extensions: PostgreSQL (PostGIS), MS SQL Server, Oracle, and to a lesser extent MySQL
   * [Here](https://en.wikipedia.org/wiki/GIS_file_formats) and [here](https://gisgeography.com/gis-formats/) are two good lists of common GIS file formats, including some relational databases.
-* Common Python packages: [OGR](http://gdal.org/python/) (see also [http://gdal.org/](http://gdal.org/) and [https://pcjericks.github.io/py-gdalogr-cookbook/](https://pcjericks.github.io/py-gdalogr-cookbook/)), [fiona](https://github.com/Toblerity/Fiona), [PyShp](https://github.com/GeospatialPython/pyshp)
+* Core Python packages for accessing geospatial data: [OGR](http://gdal.org/python/) (see also [http://gdal.org/](http://gdal.org/) and [https://pcjericks.github.io/py-gdalogr-cookbook/](https://pcjericks.github.io/py-gdalogr-cookbook/)), [fiona](https://github.com/Toblerity/Fiona), [PyShp](https://github.com/GeospatialPython/pyshp)
 
 
 ## Standard encodings and libraries for projections, codes

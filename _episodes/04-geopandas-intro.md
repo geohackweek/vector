@@ -649,7 +649,7 @@ world.plot(figsize=(8, 8));
 
 ### Map plot overlays: Plotting multiple spatial layers
 
-Here's a compact, quick way of using the GeoDataFrame plot method to overlay two GeoDataFrames while style customizing the styles for each layer.
+Here's a compact, quick way of using the GeoDataFrame plot method to overlay two GeoDataFrames while customizing the styles for each layer.
 
 
 {% highlight python %}
@@ -746,7 +746,9 @@ seas.crs
 
 
 
-    {'init': 'epsg:4326'}
+{% highlight json %}
+    {"init": "epsg:4326"}
+{% endhighlight %}
 
 
 
