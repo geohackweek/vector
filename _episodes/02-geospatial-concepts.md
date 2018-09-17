@@ -22,6 +22,7 @@ keypoints:
 
 If you're coming from the Earth Sciences, be warned that we're *not referring to fields of arrows* indicating direction and magnitude (for example, for wind velocity).
 
+Other helpful resources on vector data include this [Data Carpentry Geospatial Concepts Introduction to Vector Data](https://datacarpentry.org/organization-geospatial/02-intro-vector-data/index.html) and this [University of Colorado Spatial data open source Python Workshop materials on vector data](https://www.earthdatascience.org/workshops/gis-open-source-python/intro-vector-data-python/).
 
 ## Simple Features
 
@@ -65,4 +66,4 @@ A number of relationships and operations ("predicates") have been defined on ind
 
 In addition, the Earth is not flat, nor a sphere, not even a perfect ellipsoid. While latitude and longitude can accurately represent a location on the Earth surface, performing area and distance calculations on an ellipsoid (or spheroid) can be pretty challenging. For this reason, instead of working on this **unprojected** or **geodetic** [Coordinate Reference System (**CRS**)](https://en.wikipedia.org/wiki/Spatial_reference_system), one often transforms spatial objects and coordinates into a **projected** CRS (projecting the curved surface into a cartesian plane), particularly when working at scales that are not global (continental, regional, or highly local). Many types of [**projections**](https://en.wikipedia.org/wiki/Map_projection) exist, striving to accurately represent area, distance, orientation, or some combination of the three; most are tuned to be most accurate within a specific area of the Earth.
 
-It's critical to know what projection a dataset is in, and to be able to transform between projections as needed to align datasets. **Projections are covered in more detail in the [Visualization Tutorial](https://geohackweek.github.io/visualization/03-projections/).**
+It's critical to know what projection a dataset is in, and to be able to transform between projections as needed to align datasets. **Projections are covered in more detail in the [Visualization Tutorial](https://geohackweek.github.io/visualization/03-projections/).** See also this [Data Carpentry Coordinate Reference Systems lesson](https://datacarpentry.org/organization-geospatial/03-crs/index.html).
