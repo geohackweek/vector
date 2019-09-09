@@ -17,7 +17,7 @@ repo: https://github.com/geohackweek/vector
 root: "/vector"
 
 # Contact email address.
-email: arendta@uw.edu
+email: emiliom@uw.edu
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
