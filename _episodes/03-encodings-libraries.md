@@ -19,21 +19,22 @@ keypoints:
 Standards exist for text (and binary) encoding of the geometry and feature types we saw. These include OGC/ISO [Well-Known Text (WKT)](https://en.wikipedia.org/wiki/Well-known_text) and Well-Known Binary (WKB), OGC [Geography Markup Language (GML)](https://en.wikipedia.org/wiki/Geography_Markup_Language), and [GeoJSON](http://geojson.org/) (based on JSON, and now an ISO standard). GML is a complex XML-based encoding that we won't discuss much here. We also won't touch on WKB in much detail. In this tutorial we'll focus on **WKT** and specially **GeoJSON.**
 
 ### Well-Known Text (WKT)
-WKT text representations of geometric entities are fairly intuitive. Here are some examples of the basic geometric entities we saw earlier (where coordinates are ordered as X Y):
+[WKT](https://en.wikipedia.org/wiki/Well-known_text) text representations of geometric entities are fairly intuitive. Here are some examples of the basic geometric entities we saw earlier (where coordinates are ordered as X Y):
 * `POINT(0 0)`
 * `LINESTRING(0 0, 1 1, 1 2)`
 * `POLYGON((0 0, 4 0, 4 4, 0 4, 0 0), (1 1, 2 1, 2 2, 1 2, 1 1))`
 * `MULTIPOINT((0 0), (1 2))`
 
+WKT is specially common in interactions with spatially enabled relational databases, and also as readable representations of internal binary encodings.
 
-## GeoJSON and `__geo_interface__` interface
+### GeoJSON and `__geo_interface__` interface
 
-GeoJSON arose as a community convention leveraging the ubiquity of JSON encoding, specially on the web. Being JSON, it maps easily into Python dictionaries. See [http://geojson.org](http://geojson.org), including examples at [http://geojson.org/geojson-spec.html#examples](http://geojson.org/geojson-spec.html#examples). Its straightforward data structure has made it popular for data exchange in web applications and for passing data between software libraries.
+GeoJSON arose as a community convention leveraging the ubiquity of JSON encoding, specially on the web. Being JSON, it maps easily into Python dictionaries. See [http://geojson.org](http://geojson.org), including examples at [http://geojson.org/geojson-spec.html#examples](http://geojson.org/geojson-spec.html#examples). Its straightforward data structure has made it popular for data exchange in web applications and for passing data between software libraries. But beware that for large data, GeoJSON, being a text-based file format, is a poor choice for geospatial data storage.
 
-The Python `__geo_interface__` method is being widely adopted for passing feature data around between code packages as GeoJSON-like objects (basically, Python dictionaries). We'll explore this method in the next two episodes. To read more about it, see [GeoJSON and the geo interface for Python](https://sgillies.net/2013/06/27/geojson-and-the-geo-interface-for-python.html),  [https://gist.github.com/sgillies/2217756](https://gist.github.com/sgillies/2217756), and [Processing vector features in Python](http://www.perrygeo.com/processing-vector-features-in-python.html). For converting to and from convenient, Pythonic, GeoJSON-like objects, the light-weight [`geojson`](https://github.com/frewsxcv/python-geojson) package is a good option.
+The Python `__geo_interface__` method has been widely adopted for passing feature data around between code packages as GeoJSON-like objects (basically, Python dictionaries). We'll explore this method in the next two episodes. To read more about it, see [GeoJSON and the geo interface for Python](https://sgillies.net/2013/06/27/geojson-and-the-geo-interface-for-python.html),  [https://gist.github.com/sgillies/2217756](https://gist.github.com/sgillies/2217756), and [Processing vector features in Python](http://www.perrygeo.com/processing-vector-features-in-python.html). For converting to and from convenient, Pythonic, GeoJSON-like objects, the light-weight [`geojson`](https://github.com/jazzband/geojson) package is a good option.
 
 * Additional GeoJSON resources and tools:
-  * GitHub lets you view GeoJSON files natively (see the [minimum requirements here](https://help.github.com/articles/mapping-geojson-files-on-github/))
+  * [GitHub lets you view GeoJSON files natively](https://help.github.com/articles/mapping-geojson-files-on-github/)). See this [live example, a preview of the OSM building data we'll be covering)](https://github.com/geohackweek/tutorial_contents/blob/master/vector/data/hotosmtask5977_buildings_subset.geojson).
   * GitHub's [http://geojson.io](http://geojson.io) provides interactive creation and viewing of small GeoJSON serializations (as strings or files)
   * [http://dropchop.io](http://dropchop.io). Spatial operations on GeoJSON data, online and interactive. Brought to you by the great people of [CUGOS](https://cugos.org/), an open geospatial community in the broader Puget Sound area.
 
@@ -82,4 +83,3 @@ GeoJSON Example of a point feature collection with two features:
 * [Projections]((https://en.wikipedia.org/wiki/Map_projection)) and [Coordinate Reference Systems (**CRS**)](https://en.wikipedia.org/wiki/Spatial_reference_system) are fundamental!
 * We'll get into this in more detail in the GeoPandas notebooks, and in another tutorial
 * Some common libraries: pyepsg, pyproj, `fiona.from_epsg`, `GeoPandas.to_srs`
-

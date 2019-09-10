@@ -1,6 +1,6 @@
 ---
 title: "Geospatial Concepts"
-teaching: 8
+teaching: 5
 exercises: 0
 questions:
 - "What is 'vector' geospatial data all about?"

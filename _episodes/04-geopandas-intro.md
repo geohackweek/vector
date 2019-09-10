@@ -1,6 +1,6 @@
 ---
 title: "GeoPandas Introduction"
-teaching: 40
+teaching: 35
 exercises: 0
 questions:
 - "What is GeoPandas?"
@@ -27,18 +27,20 @@ keypoints:
 > * While GeoPandas spatial objects can be assigned a Coordinate Reference System (`CRS`), operations can not be performed across CRS's. Plus, geodetic ("unprojected", lat-lon) CRS are not handled in a special way; the area of a geodetic polygon will be in degrees.
 {: .callout}
 
-GeoPandas builds on mature, stable and widely used packages (Pandas, shapely, etc). It is being supported more and more as a preferred Python data structure for geospatial vector data.
+GeoPandas builds on mature, stable and widely used packages (Pandas, shapely, etc). It is being supported more and more as the preferred Python data structure for geospatial vector data.
 
 **When should you use GeoPandas?**
 * For exploratory data analysis, including in Jupyter notebooks.
 * For highly compact and readable code. Which in turn improves reproducibility.
+* For geospatial data transformations and reformatting in Python.
 * If you're comfortable with Pandas, R dataframes, or tabular/relational approaches.
 
 **When it may not be the best tool?**
-* For polished map creation and multi-layer, interactive visualization; if you're comfortable with GIS software, one option is to use a desktop GIS like QGIS! You can generate intermediate GIS files and plots with GeoPandas, then shift over to QGIS. Or refine the plots in Python with matplotlib or additional packages. GeoPandas can help you manage and pre-process the data, and do initial visualizations.
-* If you need very high performance, though I'm not sure about current limitations. Substantial performance enhancements are in the works; see [this 2017 article, Fast GeoSpatial Analysis in Python](https://matthewrocklin.com/blog/work/2017/09/21/accelerating-geopandas-1) discussing the performance challenges currently being addressed with [Dask parallelization](https://github.com/geopandas/geopandas/issues/461) and Cython optimization.
+* For polished map creation and multi-layer, interactive visualization; if you're comfortable with GIS software, one option is to use a desktop GIS like QGIS. You can generate intermediate GIS files and plots with GeoPandas, then shift over to QGIS. Or refine the plots in Python with matplotlib or additional packages, such as Seaborn and the Holoviz ecosystem. GeoPandas can help you manage and pre-process the data, and do initial visualizations.
+* If you need very high performance, though I'm not sure about current limitations with large data. Substantial performance enhancements are in the works; see this [2017 article, Fast GeoSpatial Analysis in Python](https://matthewrocklin.com/blog/work/2017/09/21/accelerating-geopandas-1) discussing the performance challenges currently being addressed with [Dask parallelization](https://github.com/geopandas/geopandas/issues/461) and Cython optimization. Performance improvements in processing and plotting have been taking place with practically every new version.
 
 
 ## Open the Jupyter Notebook
 
-[Open the Jupyter Notebook in nbviewer](http://nbviewer.jupyter.org/github/geohackweek/tutorial_contents/blob/master/vector/notebooks/geopandas_intro.ipynb) to follow along without running it.
+- [Open the Jupyter Notebook in nbviewer](http://nbviewer.jupyter.org/github/geohackweek/tutorial_contents/blob/master/vector/notebooks/geopandas_intro.ipynb) to follow along the rendered notebook without running it.
+- On pangeo, open and run the notebook `tutorial_contents/vector/notebooks/geopandas_intro.ipynb`.
