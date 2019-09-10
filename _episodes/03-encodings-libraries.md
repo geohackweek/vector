@@ -1,6 +1,6 @@
 ---
 title: "Encodings, Formats and Libraries"
-teaching: 5
+teaching: 4
 exercises: 0
 questions:
 - "What are common ways to encode vector geospatial data in Python, and how do they relate to broader encoding standards?"
@@ -82,4 +82,4 @@ GeoJSON Example of a point feature collection with two features:
 ## Standard encodings and libraries for projections, codes
 * [Projections]((https://en.wikipedia.org/wiki/Map_projection)) and [Coordinate Reference Systems (**CRS**)](https://en.wikipedia.org/wiki/Spatial_reference_system) are fundamental!
 * We'll get into this in more detail in the GeoPandas notebooks, and in another tutorial
-* Some common libraries: pyepsg, pyproj, `fiona.from_epsg`, `GeoPandas.to_srs`
+* Some common libraries and functions: pyepsg, pyproj, `fiona.from_epsg`, `GeoPandas.to_srs`
