@@ -1,5 +1,5 @@
 ---
-title: "Interacting with mapped data using Holoviz "
+title: "Interacting with mapped data using Holoviz"
 teaching: 1
 exercises: 0
 questions:
